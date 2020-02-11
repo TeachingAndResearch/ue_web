@@ -33,20 +33,13 @@ administratifs:
 
 De manière générale, pour implémenter correctement un formulaire avec
 Flask nous écrirons trois fonctions Python:
-* une fonction `create_or_process_form` qui sera en charge de récupérer une requête HTTP et de faire appel à une des deux fonctions suivantes.
-* une fonction `display_form_post` qui affiche le formulaire:
+* une fonction `fonction_formulaire` qui sera en charge de récupérer une requête HTTP et de faire appel à une des deux fonctions suivantes.
+* une fonction `afficher_formulaire` qui affiche le formulaire:
   * vide lors du premier essai de remplissage
   * prérempli lors des essais supplémentaires
-* une fonction `do_something` qui
+* une fonction `traitement_formulaire` qui
   * traite les entrées du formulaire préalablement validé
   * redirige l'utilisateur une fois le traitement fait
-
-
-et un objet `form` héritant de la classe `flask_wtf.Form`, qui va
-définir les entrées du formulaire, leurs contraintes, et qui à terme
-contiendra les états persistants de ces entrées (.i.e pour lors de
-plusieurs essais, les utilisateurs n'aient pas à resaisir les entrées
-déjà saisies).
 
 L'image ci-dessus résume le fonctionnement du formulaire avec la convention précédemment décrite:
 ![capture d'écran montrant l'architecture d'un formulaire](/assets/img/session2/schema.png)
