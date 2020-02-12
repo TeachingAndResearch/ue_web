@@ -50,13 +50,13 @@ Dans cette section nous allons coder un formulaire qui permettra de
 calculer des expressions mathématiques avec un formulaire. Le
 formulaire ressemblera à cela:
 
-![capture d'écran d'un formulaire pour calculer des expressions mathématiques](assets/img/session2/form_math_1.png)
+![capture d'écran d'un formulaire pour calculer des expressions mathématiques](/assets/img/session2/form_math_1.png)
 
 En validant le formulaire figurant dans l'image précédente,
 l'expression mathématique correspondante sera calculée, et le résultat
 de son évaluation sera affiché comme suit:
 
-![capture d'écran du résultat de l'évaluation d'une expression mathématique](assets/img/session2/form_math_2.png)
+![capture d'écran du résultat de l'évaluation d'une expression mathématique](/assets/img/session2/form_math_2.png)
 
 
 ## Récupération du projet à compléter
