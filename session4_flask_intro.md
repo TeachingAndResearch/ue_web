@@ -10,7 +10,7 @@ order: 4
 
 Avant de démarrer cette session, assurez-vous de bien avoir un
 environnement de développement Flask fonctionnel. Si ce n'est pas le
-cas, veuillez suivre les instructions de la [session 3](/session3_install.html)
+cas, veuillez suivre les instructions de la [session 3](session3_install.html)
 avant de poursuivre avec les instructions ci-dessous.
 
 
@@ -20,7 +20,7 @@ Nous allons voir dans cette Section comment afficher un message dans le navigate
 
 Tout d'abord, créer un nouveau projet Flask qui aura
 pour nom "FlaskTP1" en suivant les instructions de la [session
-précédente](/session3_install.html#v%C3%A9rification-de-linstallation).
+précédente](session3_install.html#v%C3%A9rification-de-linstallation).
 
 Nous allons maintenant coder une vue qui affichera le texte
 "Helloworld". Pour cela, éditez le fichier `app.py` généré par PyCharm
