@@ -1,5 +1,5 @@
 ---
-title: Session 8 - Bases de données
+title: Session 8 - Bases de données (archive)
 excerpt: ""
 order: 8
 ---
