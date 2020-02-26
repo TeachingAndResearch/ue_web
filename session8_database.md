@@ -277,3 +277,38 @@ sports = Sport.query.all()
 A parti de l'exemple récupéré avec l'archive [tp_relations_flask.zip](https://github.com/badock/ue_web_2020_example/archive/tp_relations_flask.zip)
 en allant sur l'URL [http://localhost:5000/test](http://localhost:5000/test), vous devriez avoir le résultat suivant:
 ![/assets/img/session8/sport.png](/assets/img/session8/sport.png)
+
+# Manipulation de dates
+
+Il est possible de stocker des dates dans les classes modèles en
+utilisant le type `db.DateTime`. L'exemple suivant propose d'ajouter
+la notion de tournoi possédant un attribut `date` de type `db.Datetime`:
+
+```python
+class Tournament(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text)
+    date = db.Column(db.DateTime)
+```
+
+Il est possible de créer un tournoi et de faire des requêtes portant sur les colonnes date. L'exemple suivant illustre la création d'un tournoi et son stockage en base de données:
+
+```python
+# Create Tournaments
+import datetime
+now = datetime.datetime.now()
+one_hour_ago = now - datetime.timedelta(0, hours=1)
+
+tournament = Tournament(name="tournament1", date=one_hour_ago)
+db.session.add(tournament)
+db.session.commit()
+```
+
+Puis en utilisant la méthode `filter`, il est alors possible de faire des requêtes portant sur une colonne stockant des dates, comme dans l'exemple suivant:
+```
+one_tournament_1 = Tournament.query.filter(Tournament.date > now - datetime.timedelta(0, hours=24)).all()
+one_tournament_2 = Tournament.query.filter(Tournament.date > now - datetime.timedelta(0, minutes=24)).all()
+one_tournament_3 = Tournament.query.filter(Tournament.date > now).all()
+```
+
+Enfin, il est possible de faire des requêtes plus complexes au moyen de la méthode `filter`. Cette [page](http://www.leeladharan.com/sqlalchemy-query-with-or-and-like-common-filters) donne un aperçu des possibilités offertes par la méthode `filter`, tandis que la [documentation SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/query.html) est plus complète.
