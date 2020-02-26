@@ -190,78 +190,90 @@ Il est possible de faire la même chose avec `SQLAlchemy`, en définissant des r
 - `OneToMany`: les classes A et B sont liées, un élément de A peut avoir plusieurs B, mais un élément de B ne peut avoir au maximum qu'un A. Dans l'exemple précédent, la relation "salle-cours" est de type OneToMany.
 - `ManyToMany`: les classes A et B sont liées, un élément de A peut avoir plusieurs B, et un élément de B peut avoir plusieurs A. Dans l'exemple précédent, les relations "professeur-cours" et "élève-cours" sont de type ManyToMany.
 
-Traditionnellement, les relations "ManyToMany" étaient implémentées avec des tables d'association, comme il est montré dans ce lien de [la documentation de SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/basic_relationships.html#many-to-many). *Cependant, nous ferons le choix de représenter une relation "ManyToMany" entre une classe `A` et `B` avec une classe intermédiaire `C` et deux relations "OneToMany" `A->C` et `B->C`*.
+Traditionnellement, les relations "ManyToMany" étaient implémentées avec des tables d'association, comme il est montré dans ce lien de [la documentation de SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/basic_relationships.html#many-to-many).
 
-Dans notre exemple de gestionnaire de tâches, nous allons introduire le concept de "liste de tâches". Il y aura plusieurs listes de tâches, au sein desquelles seront créées des tâches. Nous aurons les arités suivantes:
-- Une liste de tâches pourra avoir plusieurs tâches
-- Une tâche sera associée à une seule liste de tâches
+Nous allons utiliser un exemple sportif où des joueurs font parties d'équipes de sport, chaque équipe étant associée à un sport.
+Nous aurons les arités suivantes:
+- Une joueur appartient à une ou plusieurs équipes
+- Chaque équipe comprend 0, 1, n joueurs
+- Chaque équipe est associée à un sport
+- Un sport peut être associé à plusieurs équipes
 
-Cela correspond donc à une relation OneToMany.
+Nous avons donc deux relations:
+- une relation OneToMany entre équipe et sport.
+- une relation ManyToMany entre joueurs et équipes.
 
-Le code suivant illustre le modèle de tâches:
+Vous pouvez récupérer une archive de code [tp_relations_flask.zip](https://github.com/badock/ue_web_2020_example/archive/tp_relations_flask.zip),
+qui contient le code correspondant à cet exemple.
+
+Dans le fichier `database.py` le modèle est défini de la manière suivante:
 ```python
-class TaskList(db.Model):
+class Sport(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
-    tasks = db.relationship('Task', backref='task_list', lazy='dynamic')
 
 
-class Task(db.Model):
+junction_table = db.Table('participation',
+   db.Column('team_id', db.Integer, db.ForeignKey('team.id')),
+   db.Column('player_id', db.Integer, db.ForeignKey('player.id')),
+)
+
+
+class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    label = db.Column(db.Text)
-    isDone = db.Column(db.Boolean)
-    task_list_id = db.Column(db.Integer, db.ForeignKey('task_list.id'))
+    name = db.Column(db.Text)
+    sport_id = db.Column(db.Integer, db.ForeignKey('sport.id'))
+    sport = db.relationship('Sport', backref='teams')  # Sport <-> Team relationship
+    players = db.relationship('Player', backref='teams', secondary=junction_table)  # Sport <-> Player relationship
+
+
+class Player(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.Text)
+    lastname = db.Column(db.Text)
 ```
+Nous pouvons constater les choses suivantes:
+- Trois classes `Sport`, `Team` et `Player` sont définies: elles correspondent aux concepts evoqués plus haut.
+- Les relations entre classes se définissent en définissant des attributs `db.relationship`
+- Les attributs  `db.relationship` peuvent prendre un paramètre `backref` qui créera un attribut sur la classe cible.
 
-
-# Exercice
-
-Nous allons maintenant effectuer un exercice, où vous développerez un
-gestionnaire de tâches. Vous partirez d'une archive ZIP
-[tp_bdd_tasks_exercice.zip](https://github.com/badock/ue_web_2020_example/archive/tp_bdd_tasks_exercice.zip),
-qui contient une application web de base, et où vous devrez compléter
-des fonctions manipulant la base de données.
-
-Ce projet met en place une vue avec un formulaire et fournit un modèle
-de données stocké en base de données en utilisant les éléments
-introduits précédemment. Nous fournissons deux fonctions:
-
-- `save_object_to_db(db_object)`: sauvegarde un objet dans la base de données.
-- `remove_object_from_db(db_object)`: supprime un objet de la base de données.
-
-**Si vous n'utilisez pas le code de l'archive `tp_bdd_tasks_exercice.zip`**, ajouter (ou remplacer) ces deux fonctions dans  `app.py`: 
+On peut utiliser ce modèle de la manière suivante:
 ```python
-def save_object_to_db(db_object):
-    db.session.add(db_object)
-    db.session.commit()
+# Create two sports
+judo = Sport(name="judo")
+football = Sport(name="football")
+db.session.add(judo)
+db.session.add(football)
+db.session.commit()
 
+# Create three players
+player1 = Player(firstname="Jonathan", lastname="Pastor")
+player2 = Player(firstname="Hervé", lastname="Dupont")
+player3 = Player(firstname="André", lastname="Laroute")
+db.session.add(player1)
+db.session.add(player2)
+db.session.add(player3)
+db.session.commit()
 
-def remove_object_from_db(db_object):
-    db.session.delete(db_object)
-    db.session.commit()
+# Create a team with the two players
+rocket = Team(name="rocket", sport=judo)
+sonette = Team(name="sonette", sport=football)
+db.session.add(rocket)
+db.session.add(sonette)
+db.session.commit()
+
+# Add the two players to the team 'rocket'
+rocket.players.append(player1)
+rocket.players.append(player2)
+db.session.add(rocket)
+sonette.players.append(player2)
+sonette.players.append(player3)
+db.session.commit()
+
+# Fetch all sports
+sports = Sport.query.all()
 ```
 
-
-Pour que l'application soit fonctionnelle, il faut coder les fonctions
-suivantes laissées vides:
-
-- `create_tasks_list(tasks_list_name)`: fonction qui prend en
-  paramètre un nom de liste de tâches, et crée un objet de type
-  `TaskList` avec le nom passé en paramètre, et le sauvegarder en base
-  de données.
-- `add_task_to_tasks_list(form, tasks_list)`: fonction qui prend en
-  paramètre un formulaire et un objet `task_list` de type `TaskList`,
-  et qui doit créer un nouvel objet de type `Task` et l'ajouter à
-  l'objet `tasks_list`. Pour information, vous devrez travailler sur
-  la clé étrangère `task_list_id` de l'objet `Task`.
-- `find_tasks_list_by_name(tasks_list_name)`: fonction qui retourne
-  une `TaskList` dont le nom est égal au paramètre de fonction. Si
-  aucune liste de tâches ne possède ce nom, la fonction peut retourner
-  `None`.
-- `find_task_by_id(task_id)`: fonction qui retourne une `Task` dont
-  l'identifiant ID est égal au paramètre de fonction. Si aucune tâche
-  ne possède cet identifiant, la fonction peut retourner `None`.
-
-# Correction
-
-Vous trouverez une version corrigée de l'archive avec le lien suivant [tp_bdd_tasks.zip](https://github.com/badock/ue_web_2020_example/archive/tp_bdd_tasks.zip).
+A parti de l'exemple récupéré avec l'archive [tp_relations_flask.zip](https://github.com/badock/ue_web_2020_example/archive/tp_relations_flask.zip)
+en allant sur l'URL [http://localhost:5000/test](http://localhost:5000/test), vous devriez avoir le résultat suivant:
+![/assets/img/session8/sport.png](/assets/img/session8/sport.png)
