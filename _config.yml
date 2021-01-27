@@ -1,6 +1,6 @@
 remote_theme: pmarsceill/just-the-docs
-theme: "just-the-docs"
-title: UE WEB - 2020
+#theme: "just-the-docs"
+title: UE WEB - 2021
 
 # Set plugins
 plugins:
@@ -20,5 +20,3 @@ search_enabled: true
 # aux_links:
 #   "Just the Docs on GitHub":
 #     - "//github.com/pmarsceill/just-the-docs"
-
-
