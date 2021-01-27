@@ -1,7 +1,7 @@
 ---
 title: Session 7 - Templates avancées et ressources statiques
 excerpt: ""
-order: 7
+nav_order: 7
 ---
 
 1. TOC
@@ -76,7 +76,7 @@ y mettre le code suivant:
 <html>
     <head>
         <title>{{ title }}</title>
-        <!-- <style> est une balise qui permet d'inclure du code CSS dans une page web, 
+        <!-- <style> est une balise qui permet d'inclure du code CSS dans une page web,
         sans définir un fichier externe de style CSS -->
         <style>
             .active {

@@ -1,7 +1,7 @@
 ---
 title: Session 6 - Mise en forme avancée avec Bootstrap
 excerpt: ""
-order: 6
+nav_order: 6
 ---
 
 Les exemples de CSS que nous avons vus jusqu'à présent étaient très

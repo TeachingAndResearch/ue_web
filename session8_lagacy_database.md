@@ -1,7 +1,7 @@
 ---
 title: Session 8 - Bases de données (archive)
 excerpt: ""
-order: 8
+nav_order: 8
 ---
 
 1. TOC
@@ -165,7 +165,7 @@ db.session.commit() # Sauvegarde les informations dans la base de donnees
 Plutôt que d'écrire des requêtes en langage SQL, SQLAlchemy propose de sélectionner et filtrer les informations de la base de données en utilisant des fonctions python:
 
 
-| Action        | Code         | type de retour | 
+| Action        | Code         | type de retour |
 |:-------------|:------------------| :-----  |
 | Lister toutes les tâches  | `Task.query.all()` | `list<Task>` |
 | Récupérer le premier élément des résultats d'une requête | `Task.query.first()` | `Task` ou `None` |
@@ -229,7 +229,7 @@ introduits précédemment. Nous fournissons deux fonctions:
 - `save_object_to_db(db_object)`: sauvegarde un objet dans la base de données.
 - `remove_object_from_db(db_object)`: supprime un objet de la base de données.
 
-**Si vous n'utilisez pas le code de l'archive `tp_bdd_tasks_exercice.zip`**, ajouter (ou remplacer) ces deux fonctions dans  `app.py`: 
+**Si vous n'utilisez pas le code de l'archive `tp_bdd_tasks_exercice.zip`**, ajouter (ou remplacer) ces deux fonctions dans  `app.py`:
 ```python
 def save_object_to_db(db_object):
     db.session.add(db_object)

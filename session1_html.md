@@ -1,7 +1,7 @@
 ---
 title: Session 1 - Introduction à HTML, CSS et Javascript
 excerpt: ""
-order: 1
+nav_order: 1
 ---
 
 
@@ -413,7 +413,7 @@ p {
 Une règle d'identifiant cible un élément particulier d'une page.
 Il est possible de déclarer un identifiant pour un élément HTML
 en déclarant l'attribut "id" d'une balise. Chaque identifiant
-doit être unique à l'ensemble de la page. Un sélecteur par 
+doit être unique à l'ensemble de la page. Un sélecteur par
 identifiant est formé du symbole # suivi de l'identifiant.
 Dans l'exemple suivant, la balise ```<div>``` a pour identifiant
 "topbar".

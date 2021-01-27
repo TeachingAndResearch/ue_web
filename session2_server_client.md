@@ -1,7 +1,7 @@
 ---
 title: Session 2 - Le modèle serveur-client par l'exemple
 excerpt: ""
-order: 2
+nav_order: 2
 ---
 
 
