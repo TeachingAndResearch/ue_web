@@ -34,21 +34,26 @@ d'écran).
 1. TOC
 {:toc}
 
+__Note: ce cours utilise la nouvelle version de Bootstrap qui est en
+beta. Vous pourrez utiliser celle-ci ou la version 4.6 pour votre
+projet si vous vous sentez plus confortable avec.__
+
 
 # Modèle de page HTML pour Bootstrap
 
-Pour utiliser Bootstrap, il faut dans un premier temps inclure le fichier
-CSS Bootstrap. Ceci est fait grâce à une balise `<link>` dans `<head>`.
-Certains composants nécessitent d'inclure un fichier Javascript Bootstrap
-ainsi que ces dépendances : JQuerry et Popper. Une bonne pratique est de
-charger les fichiers Javascript non-essentiels au chargement de la page
-à la fin de la balise `<body>`. On fait ceci avec trois balises
-`<script>`. Enfin, pour obtenir un affichage correct sur les navigateurs
-mobiles, il faut rajouter une balise `<meta>` dans `<head>` qui désactive
-le comportement par défaut des navigateurs web mobile : simuler un grand
-écran et permettre à l'utilisateur de zoomer. Ce comportement est actif
-par défaut car une partie non-négligeable des sites internet ne sont pas
-optimisés pour un affichage sur mobile.
+Pour utiliser Bootstrap, il faut dans un premier temps inclure le
+fichier CSS Bootstrap. Ceci est fait grâce à une balise `<link>` dans
+`<head>`.  Certains composants nécessitent d'inclure un fichier
+Javascript Bootstrap qui inclue Popper. Une bonne pratique est de
+charger les fichiers Javascript non-essentiels au chargement de la
+page à la fin de la balise `<body>`. On fait ceci avec trois balises
+`<script>`. Enfin, pour obtenir un affichage correct sur les
+navigateurs mobiles, il faut rajouter une balise `<meta>` dans
+`<head>` qui désactive le comportement par défaut des navigateurs web
+mobile : simuler un grand écran et permettre à l'utilisateur de
+zoomer. Ce comportement est actif par défaut car une partie
+non-négligeable des sites internet ne sont pas optimisés pour un
+affichage sur mobile.
 
 Vous pouvez utiliser le modèle ci-dessous pour avoir une page vierge
 utilisant Bootstrap :
@@ -62,7 +67,8 @@ utilisant Bootstrap :
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 
     <title>Titre de la page</title>
   </head>
@@ -70,15 +76,14 @@ utilisant Bootstrap :
     <!-- Votre contenu -->
 
     <!-- Fichiers Javascript nécessaires pour certains composants Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
   </body>
 </html>
 ```
 
 Note : si par curiosité vous voulez voir à quoi ressemblent les fichiers
-CSS et Javascript de Bootstrap, vous pouvez consulter leur version
+CSS et Javascript de Bootstrap 4.0, vous pouvez consulter leur version
 non-compressée
 [ici pour CSS](https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css)
 et
@@ -169,6 +174,7 @@ prédéfinies dans Bootstrap :
 * md : ≥ 768px
 * lg : ≥ 992px
 * xl : ≥ 1200px
+* xxl : ≥ 1400 px
 
 Pour indiquer qu'un élément doit prendre 3 colonnes à
 partir de 1200 pixels de large, on lui donne la classe
@@ -218,7 +224,7 @@ est plus haut que les autres), l'alignement et
 l'espacement horizontal des éléments dans une ligne
 (s'ils ne remplissent pas les 12 colonnes),
 l'imbriquement de grilles etc. Pour en savoir plus :
-[https://getbootstrap.com/docs/4.0/layout/grid/](https://getbootstrap.com/docs/4.0/layout/grid/)
+[https://getbootstrap.com/docs/5.0/layout/grid/](https://getbootstrap.com/docs/5.0/layout/grid/)
 
 
 # Composants Bootstrap
@@ -236,7 +242,7 @@ Un exemple est la classe "table" à donner à une
 balise `<table>`. D'autres classes sont disponibles
 pour personnaliser très facilement le rendu d'un
 tableau. Pour en savoir plus :
-[https://getbootstrap.com/docs/4.0/content/tables/](https://getbootstrap.com/docs/4.0/content/tables/)
+[https://getbootstrap.com/docs/5.0/content/tables/](https://getbootstrap.com/docs/5.0/content/tables/)
 
 ## Composants personnalisés
 
@@ -264,7 +270,7 @@ l'évaluation ! :-)
 ### Exemple 1 : boutons Bootstrap
 
 Documentation des boutons Bootstrap :
-[https://getbootstrap.com/docs/4.0/components/buttons/](https://getbootstrap.com/docs/4.0/components/buttons/)
+[https://getbootstrap.com/docs/5.0/components/buttons/](https://getbootstrap.com/docs/5.0/components/buttons/)
 
 ![Boutons Bootstrap](/assets/img/session6/bootstrap_buttons.png)
 
@@ -284,21 +290,22 @@ Documentation des boutons Bootstrap :
 ### Exemple 2 : barres de navigation
 
 Documentation des barres de navigation :
-[https://getbootstrap.com/docs/4.0/components/navbar/](https://getbootstrap.com/docs/4.0/components/navbar/)
+[https://getbootstrap.com/docs/5.0/components/navbar/](https://getbootstrap.com/docs/5.0/components/navbar/)
 
 ![Barre de navigation Bootstrap](/assets/img/session6/bootstrap_navbar.png)
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <div class="container-fluid">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
@@ -310,10 +317,11 @@ Documentation des barres de navigation :
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
+ </div>
 </nav>
 ```

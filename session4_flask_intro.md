@@ -16,7 +16,7 @@ avant de poursuivre avec les instructions ci-dessous.
 
 # Une première application web simple, avec Flask
 
-Nous allons voir dans cette Section comment afficher un message dans le navigateur de l'utilisateur. 
+Nous allons voir dans cette Section comment afficher un message dans le navigateur de l'utilisateur.
 
 Tout d'abord, créer un nouveau projet Flask qui aura
 pour nom "FlaskTP1" en suivant les instructions de la [session
@@ -65,6 +65,7 @@ résultat suivant:
 
 ![capture d'écran montrant le programme d'installation de miniconda](/assets/img/session1/screen5.png)
 
+Les différents types acceptés nativement dans Flask sont trouvables [ici](https://exploreflask.com/en/latest/views.html#url-converters).
 
 # Vers des vues structurées avec les templates
 
@@ -80,6 +81,8 @@ Prenons l'exemple suivant:
 
 ```python
 import flask # mettre cette ligne en debut de fichier
+
+app = flask.Flask(__name__)
 
 @app.route("/complex_view")
 def complex_view():
@@ -156,13 +159,13 @@ def complex_view_template():
 {% raw %}
 ```jinja
 {% for color in colors %}
-    {{ color }}
+    * {{ color }}
 {% endfor %}
 
 {% if boolean_value_arg %}
-    {{ msg_if_boolean_value_arg }}
+    {{ msg_if_boolean_value }}
 {% else %}
-    {{ msg_if_not_boolean_value_arg }}
+    {{ msg_if_not_boolean_value }}
 {% endif %}
 ```
 {% endraw %}
@@ -216,7 +219,7 @@ Dans cette section nous allons voir comment renvoyer une réponse HTML
 
 Tout d'abord, récupérer une archive de code
 [session_4_engineer_view.zip](https://github.com/badock/ue_web_2020_example/archive/session_4_engineer_view.zip)
-contenant un projet qui servira de base pour cet exercice. 
+contenant un projet qui servira de base pour cet exercice.
 
 Ce TP contient une base de données pour stocker les données. Entre
 deux requêtes, les variables locales à une fonction python ne sont pas
@@ -226,7 +229,7 @@ pour s'initialiser toute seule.
 
 **Les bases de données seront introduites dans une future session.**
 
-Le projet contient aussi une classe `Engineer` persistante:
+Le projet contient aussi une classe `Engineer` persistante trouvable dans `database/models.py`:
 
 ```python
 class Engineer(db.Model):
@@ -268,17 +271,17 @@ allons:
     </head>
     <body>
         <p>Information about "{{ engineer.username }}"</p>
-    
+
         <dl>
             <dt>id</dt>
             <dd>{{ engineer.id }}</dd>
-        
+
             <dt>username</dt>
             <dd>{{ engineer.username }}</dd>
-        
+
             <dt>email</dt>
             <dd>{{ engineer.email }}</dd>
-        
+
             <dt>site</dt>
             <dd>{{ engineer.site }}</dd>
         </dl>
@@ -311,7 +314,7 @@ Pour la prochaine séance, nous vous demandons de codez une vue qui:
 
 Pour cela vous pourrez:
 - utiliser la fonction `get_engineers_in_site` qui a un site retourne les ingénieurs qui y sont affiliés
-- créer une template jinja `display_engineers_by_site.html.jinja2`
+- créer une template jinja `show_engineers_by_site.html.jinja2`
 - vous inspirer des templates vues en cours en utilisant un `for` et {% raw %}`{{ engineer.X }}`{% endraw %}
 - Suggestion: vous pouvez afficher les ingénieurs sous forme de liste HTML en utilisant la structure:
 

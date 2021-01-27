@@ -17,7 +17,7 @@ administratifs:
 | Étape | Formulaire administratif | Formulaire Flask             |
 |:--: |:------------------------------------|:------------------|
 | `Développement`{: .label .label-blue} | | |
-| 0 | Définition d'un formulaire (avec Word)  | Définition d'une fonction Flask `fonction_formulaire` qui génère et traite un formulaire HTML |
+| 0 | Définition d'un formulaire (sous éditeur de texte)  | Définition d'une fonction Flask `fonction_formulaire` qui génère et traite un formulaire HTML |
 | `Fonctionnement`{: .label .label-blue} | | |
 | 1 | Un utilisateur entre dans un batiment administratif | Un utilisateur accède à une vue Flask via un navigateur web  |
 | 2 | L'utilisateur se dirige vers un guichet où l'attend un agent administratif | Flask route la requête à la bonne fonction Python |
@@ -29,7 +29,7 @@ administratifs:
 | `Si le formulaire est bien rempli`{: .label .label-green} | | |
 | 8 | L'agent accepte le formulaire et prend en compte la demande | La fonction `fonction_formulaire` passe la main à passe à la main à `traitement_formulaire` qui va potentiellement faire des modifications en base de données |
 | `Si le formulaire est mal rempli`{: .label .label-red} | | |
-| 9 | Retour à l'étape 5 | Retour à l'étape 3 (en sauvegardant les informations entrées par l'utilisateur) | 
+| 9 | Retour à l'étape 5 | Retour à l'étape 3 (en sauvegardant les informations entrées par l'utilisateur) |
 
 De manière générale, pour implémenter correctement un formulaire avec
 Flask nous écrirons trois fonctions Python:
@@ -65,7 +65,7 @@ de son évaluation sera affiché comme suit:
 <!-- **formulaires**, en suivant les [instructions -->
 <!-- suivantes](git.html#r%C3%A9cup%C3%A9rer-le-code-dune-branche-git-avec-pycharm). -->
 
-Avec votre navigateur, cliquez sur ce [lien (vers formulaires.zip)](https://github.com/badock/ue_web_2020_example/archive/formulaires.zip) pour récupérer une archive ZIP du [dépôt formulaires](https://github.com/badock/ue_web_2020_example/tree/formulaires) permettant de démarrer cet exercice.
+Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/badock/ue_web_2020_example/archive/formulaires.zip) pour récupérer une archive ZIP du [dépôt formulaires](https://github.com/badock/ue_web_2020_example/tree/formulaires) permettant de démarrer cet exercice.
 
 Ce projet une application Flask basique qu'il faudra compléter.
 
@@ -148,7 +148,7 @@ manière suivante:
 Nous pouvons faire les observations suivantes:
 - Chaque champ du formulaire est affichée grâce à un appel du style {% raw %}`<input type="text" name="number_a" placeholder="number_a">`{% endraw %}
 - Chaque champ du formulaire va avoir un attribut `name="nom_du_champ"`. Cette attribut sera utilisé comme clé pour stocker la valeur dans `flask.request.form` : en effet dans cette exemple, la valeur du champ de formulaire qui a pour attribut `name="foo"` sera accessible à `flask.request.form["foo"]`.
-- On indique où envoyer la template avec l'instruction {% raw %} `action="{{ url_for("fonction_formulaire_addition") }}"`{% endraw %}. 
+- On indique où envoyer la template avec l'instruction {% raw %} `action="{{ url_for("fonction_formulaire_addition") }}"`{% endraw %}.
 - La  fonction `url_for` prend en paramètre le nom et les arguments d'une fonction python, et retourne une URL qui cible cette fonction.
 
 ## Validation du formulaire
@@ -164,13 +164,13 @@ def formulaire_est_valide(form):
     result = True
     errors = []
 
-    if number_a is "":
+    if number_a == "":
         result = False
         errors += ["missing 'number_a' parameter"]
-    if number_b is "":
+    if number_b == "":
         result = False
         errors += ["missing 'number_b' parameter"]
-    if operator is "":
+    if operator == "":
         result = False
         errors += ["missing 'operator' parameter"]
 
@@ -192,7 +192,7 @@ def afficher_formulaire_addition(form, errors):
     return flask.render_template("form_addition.html.jinja2", errors=errors)
 ```
 
-Now add the following snippet somewhere in the `form_addition.html.jinja2` template:
+Ajoutons ensuite le code suivant dans le template `form_addition.html.jinja2`:
 
 {% raw %}
 ```jinja
@@ -253,7 +253,7 @@ Ensuite il faut modifier la template `form_addition.html.jinja2`:
             </dd>
         </dl>
         <input type="submit">
-    </form>
+</form>
 ```
 {% endraw %}
 
@@ -271,5 +271,3 @@ if operator not in authorized_operators:
 ```
 
 ![/assets/img/session2/prefilled_forms3.png](/assets/img/session2/prefilled_forms3.png)
-
-

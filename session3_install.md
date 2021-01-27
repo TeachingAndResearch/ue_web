@@ -19,7 +19,7 @@ environnement Python fonctionnel, vous pouvez sauter cette étape.
 
 ## Installation de Miniconda
 
-Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html) pour télécharger le programme d'installation qui correspond à votre configuration. Faites attention à choisir __Python 3.7__.
+Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html) pour télécharger le programme d'installation qui correspond à votre configuration. Faites attention à choisir __Python 3.7 MINIMUM__.
 
 Il faut exécuter le programme d'installation sur votre machine. Au cours de l'installation, utilisez les paramètres par défaut. **Il est possible que le programme d'installation vous demande d'entrer un mot de passe administrateur. Dans ce cas, entrez le mot de passe de votre compte.**
 
@@ -27,7 +27,7 @@ Il faut exécuter le programme d'installation sur votre machine. Au cours de l'i
 
 ![capture d'écran montrant le programme d'installation de miniconda](/assets/img/session0/screen4.png)
 
-Vous pouvez quitter le programme d'installation : Miniconda est maintenant installé sur l'ordinateur. 
+Vous pouvez quitter le programme d'installation : Miniconda est maintenant installé sur l'ordinateur.
 
 **Si l'installation n'a pas fonctionné correctement ou des messages d'erreur sont apparus, parlez-en à un des enseignants afin de ne pas prendre de retard sur la session.**
 
@@ -98,15 +98,12 @@ pas au programme de ce module**. Cependant nous vous conseillons
 vivement de vous faire un compte sur Github, et de l'utiliser pour
 héberger vos futurs projets de développement logiciels.
 
-Le projet d'exemple est hébergé sur Github:
-[https://github.com/badock/ue_web_2020_example/tree/session0](https://github.com/badock/ue_web_2020_example/tree/session0)
-
-Github permet de récupérer une archive de ce projet:
+Le projet d'exemple est hébergé sur Github, et une archive y est récupérable:
 [https://github.com/badock/ue_web_2020_example/archive/session0.zip](https://github.com/badock/ue_web_2020_example/archive/session0.zip)
 
 Nous vous demandons de:
 1. Télécharger l'archive ZIP via le lien précédent
-2. Extraire cette archive 
+2. Extraire cette archive
 ![extraction de l'archive zip](/assets/img/session0/screen_install_0.png)
 3. Sur la page d'accueil PyCharm, cliquer sur **ouvrir**
 ![extraction de l'archive zip](/assets/img/session0/screen_install_1.png)
@@ -130,5 +127,3 @@ Nous vous demandons de:
 ![capture d'écran montrant comment configurer le mode flask et le mode debug](/assets/img/session0/flask_debug_3.png)
 7. Lancer le projet et regarder si une erreur apparait. **Si une erreur apparait, contactez un des enseignants**
 ![capture d'écran montrant comment installer les dépendances logicielles](/assets/img/session0/screen18.png)
-
-

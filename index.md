@@ -21,10 +21,11 @@ order: 0
 ## Enseignants
 
 - Adrien Lebre : adrien.lebre@imt-atlantique.fr
-- Jonathan Pastor : jonathan.pastor@imt-atlantique.fr
+- Marie Delavergne : marie.delavergne@imt-atlantique.fr
 
 ## Auteurs du cours
 
 - Maverick Chardet : maverick.chardet@inria.fr
 - Adrien Lebre : adrien.lebre@imt-atlantique.fr
 - Jonathan Pastor : jonathan.pastor@imt-atlantique.fr
+- Marie Delavergne : marie.delavergne@imt-atlantique.fr
