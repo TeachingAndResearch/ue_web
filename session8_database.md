@@ -21,7 +21,7 @@ qui s'occupaient d'interroger la base de données.
 
 Pour bien illustrer ces étapes, nous démarrerons cette session à
 partir d'une archive ZIP
-[tp_bdd_tasks_start.zip](https://github.com/badock/ue_web_2020_example/archive/tp_bdd_tasks_start.zip)
+[tp_bdd_tasks_start.zip](https://github.com/marie-donnie/ue_web_2020_example/archive/tp_bdd_tasks_start.zip)
 contenant un projet minimal, sans base de données. Dans les sections
 suivantes, nous ajouterons progressivement le support des bases de
 données. Enfin, nous ferons un exercice qui se basera sur le
