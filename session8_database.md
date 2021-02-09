@@ -234,10 +234,10 @@ class Player(db.Model):
 ```
 Nous pouvons constater les choses suivantes:
 - Trois classes `Sport`, `Team` et `Player` sont définies: elles correspondent aux concepts evoqués plus haut.
-- Les relations entre classes se définissent en définissant des attributs `db.relationship`
+- Les relations entre classes se définissent en spécifiant des attributs `db.relationship`
 - Les attributs  `db.relationship` peuvent prendre un paramètre `backref` qui créera un attribut sur la classe cible.
 
-On peut utiliser ce modèle de la manière suivante:
+On peut utiliser ce modèle de la manière suivante (code déjà présent dans `app.py`):
 ```python
 # Create two sports
 judo = Sport(name="judo")
