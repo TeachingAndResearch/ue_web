@@ -1,7 +1,7 @@
 ---
-title: Session 3 - Démarrer avec Flask et Python
+title: Session 1 - Démarrer avec Flask et Python
 excerpt: ""
-nav_order: 3
+nav_order: 1
 ---
 
 1. TOC

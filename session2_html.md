@@ -1,7 +1,7 @@
 ---
-title: Session 1 - Introduction à HTML, CSS et Javascript
+title: Session 2 - Introduction à HTML, CSS et Javascript
 excerpt: ""
-nav_order: 1
+nav_order: 2
 ---
 
 
