@@ -65,7 +65,7 @@ de son évaluation sera affiché comme suit:
 <!-- **formulaires**, en suivant les [instructions -->
 <!-- suivantes](git.html#r%C3%A9cup%C3%A9rer-le-code-dune-branche-git-avec-pycharm). -->
 
-Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/badock/ue_web_2020_example/archive/formulaires.zip) pour récupérer une archive ZIP du [dépôt formulaires](https://github.com/badock/ue_web_2020_example/tree/formulaires) permettant de démarrer cet exercice.
+Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/Marie-Donnie/ue_web_example/archive/formulaires.zip) pour récupérer une archive ZIP du [dépôt formulaires](https://github.com/Marie-Donnie/ue_web_example/tree/formulaires) permettant de démarrer cet exercice.
 
 Ce projet une application Flask basique qu'il faudra compléter.
 

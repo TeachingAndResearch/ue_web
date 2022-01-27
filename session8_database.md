@@ -21,7 +21,7 @@ qui s'occupaient d'interroger la base de données.
 
 Pour bien illustrer ces étapes, nous démarrerons cette session à
 partir d'une archive ZIP
-[tp_bdd_tasks_start.zip](https://github.com/marie-donnie/ue_web_2020_example/archive/tp_bdd_tasks_start.zip)
+[tp_bdd_tasks_start.zip](https://github.com/marie-donnie/ue_web_example/archive/tp_bdd_tasks_start.zip)
 contenant un projet minimal, sans base de données. Dans les sections
 suivantes, nous ajouterons progressivement le support des bases de
 données. Enfin, nous ferons un exercice qui se basera sur le
@@ -203,7 +203,7 @@ Nous avons donc deux relations:
 - une relation OneToMany entre équipe et sport.
 - une relation ManyToMany entre joueurs et équipes.
 
-Vous pouvez récupérer une archive de code [tp_relations_flask.zip](https://github.com/badock/ue_web_2020_example/archive/tp_relations_flask.zip),
+Vous pouvez récupérer une archive de code [tp_relations_flask.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_relations_flask.zip),
 qui contient le code correspondant à cet exemple.
 
 Dans le fichier `database.py` le modèle est défini de la manière suivante:
@@ -274,7 +274,7 @@ db.session.commit()
 sports = Sport.query.all()
 ```
 
-A parti de l'exemple récupéré avec l'archive [tp_relations_flask.zip](https://github.com/badock/ue_web_2020_example/archive/tp_relations_flask.zip)
+A parti de l'exemple récupéré avec l'archive [tp_relations_flask.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_relations_flask.zip)
 en allant sur l'URL [http://localhost:5000/test](http://localhost:5000/test), vous devriez avoir le résultat suivant:
 ![/assets/img/session8/sport.png](/assets/img/session8/sport.png)
 

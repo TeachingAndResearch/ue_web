@@ -16,6 +16,8 @@ plugins:
 # Enable or disable the site search
 search_enabled: true
 
+lang: fr
+
 # # Aux links for the upper right navigation
 # aux_links:
 #   "Just the Docs on GitHub":

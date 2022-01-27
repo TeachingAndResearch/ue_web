@@ -9,7 +9,7 @@ order: 11
 
 # Introduction
 
-Pour vous aider à avancer dans le projet, nous vous fournissons un modèle de données que vous trouverez dans l'archive [projet_demarrage.zip](https://github.com/badock/ue_web_2020_example/archive/projet_demarrage.zip).
+Pour vous aider à avancer dans le projet, nous vous fournissons un modèle de données que vous trouverez dans l'archive [projet_demarrage.zip](https://github.com/Marie-Donnie/ue_web_example/archive/projet_demarrage.zip).
 
 Cette archive contient:
 - Sept classes modèles représentant le SI pour l'application d'affectations de missions dans une SSII
@@ -27,7 +27,7 @@ La base de données répond aux contraintes suivantes
 - Des missions ont des besoins en compétences
 - Des ingénieurs peuvent se positionner sur une mission en émettant des souhaits
 - Des ingénieurs participent à des missions. Leurs participations ont une date de début et de fin
-- Un ingénieur peut être responsable d'une mission (dans ce cas, il devient l'ingénieur d'affaires ou responsable commercial de la mission). 
+- Un ingénieur peut être responsable d'une mission (dans ce cas, il devient l'ingénieur d'affaires ou responsable commercial de la mission).
 
 Quand vous lancez le projet Flask, la base de données est automatiquement créée, et initialisée avec des données.
 

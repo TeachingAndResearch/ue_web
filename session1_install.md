@@ -99,7 +99,7 @@ vivement de vous faire un compte sur Github, et de l'utiliser pour
 héberger vos futurs projets de développement logiciels.
 
 Le projet d'exemple est hébergé sur Github, et une archive y est récupérable:
-[https://github.com/badock/ue_web_2020_example/archive/session0.zip](https://github.com/badock/ue_web_2020_example/archive/session0.zip)
+[https://github.com/Marie-Donnie/ue_web_example/archive/session0.zip](https://github.com/Marie-Donnie/ue_web_example/archive/session0.zip)
 
 Nous vous demandons de:
 1. Télécharger l'archive ZIP via le lien précédent

@@ -8,7 +8,7 @@ nav_order: 7
 {:toc}
 
 Pour cette session nous utiliserons un projet déjà existant. Veuillez
-récupérer ZIP l'archive accessible à l'URL suivante [tp_templates_start.zip](https://github.com/badock/ue_web_2020_example/archive/tp_templates_start.zip).
+récupérer ZIP l'archive accessible à l'URL suivante [tp_templates_start.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_templates_start.zip).
 
 Ce projet contient 3 vues:
 - view_a
@@ -323,4 +323,4 @@ faire des modifications avancées avec Javascript.
 
 # Correction
 
-Vous pouvez récupérer une archive ZIP [tp_templates_correction.zip](https://github.com/badock/ue_web_2020_example/archive/tp_templates_correction.zip) contenant la correction de cette séance.
+Vous pouvez récupérer une archive ZIP [tp_templates_correction.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_templates_correction.zip) contenant la correction de cette séance.
