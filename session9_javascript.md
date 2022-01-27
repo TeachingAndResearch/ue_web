@@ -14,9 +14,9 @@ pour fournir une page dynamique (dont le contenu évolue sans recharger
 la page).
 
 Javascript peut par exemple:
-- [changer du contenu HTML](https://jsfiddle.net/marie_donnie/z8ovkwua/)
-- [changer la valeur des attributs HTML](https://jsfiddle.net/marie_donnie/o2qLkb09/)
-test <script async src="//jsfiddle.net/marie_donnie/o2qLkb09/embed/"></script>
+- changer du contenu HTML :
+<iframe width="100%" height="300" src="//jsfiddle.net/marie_donnie/z8ovkwua/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+- changer la valeur des attributs HTML :
 <iframe width="100%" height="300" src="//jsfiddle.net/marie_donnie/o2qLkb09/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 [Liens vers les slides](https://0xc0de.fr/courses/Domaine/2018/slides/js-ajax/)
