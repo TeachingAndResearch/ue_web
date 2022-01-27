@@ -1,7 +1,7 @@
 ---
-title: Session 8 - Bases de données (archive)
+title: Session 8 bis - Bases de données (archive)
 excerpt: ""
-nav_order: 8
+nav_order: 10
 ---
 
 1. TOC
