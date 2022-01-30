@@ -80,7 +80,7 @@ Python et transmis à Flask. Dans un second temps, nous verrons comment
 Prenons l'exemple suivant:
 
 ```python
-import flask # mettre cette ligne en debut de fichier
+import flask # mettre cette ligne en debut de fichier (surtout si vous gardez le fichier généré par Pycharm)
 
 app = flask.Flask(__name__)
 
@@ -106,15 +106,14 @@ def complex_view():
         result += msg_if_not_boolean_value
 
     # envoie de la reponse sous forme textuelle
-    return Flask.Response(result,
+    return flask.Response(result,
                           mimetype="text")
 ```
 
 En visitant l'URL
 [http://127.0.0.1:5000/complex_view](http://127.0.0.1:5000/complex_view),
-vous obtiendez ce resultat: ![capture d'écran montrant le result du
-premier programme avec une vue
-complexe](/assets/img/session4/complex_view.png)
+vous obtiendez ce resultat: ![alt text](/assets/img/session4/complex_view.png "capture d'écran montrant le result du
+premier programme avec une vue complexe")
 
 La fonction `complex_view` retourne une réponse textuelle construite
 avec deux structures de contrôle : un `for` et un `if`. Bien qu'étant

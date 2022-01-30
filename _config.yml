@@ -18,6 +18,12 @@ search_enabled: true
 
 lang: fr
 
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
+
 # # Aux links for the upper right navigation
 # aux_links:
 #   "Just the Docs on GitHub":
