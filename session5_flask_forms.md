@@ -12,7 +12,7 @@ nav_order: 5
 
 Les formulaires sont une manière de demander de l'information aux
 utilisateurs. Ils fonctionnent de la même manière que les formulaires
-administratifs:
+administratifs :
 
 | Étape | Formulaire administratif | Formulaire Flask             |
 |:--: |:------------------------------------|:------------------|
@@ -29,19 +29,19 @@ administratifs:
 | `Si le formulaire est bien rempli`{: .label .label-green} | | |
 | 8 | L'agent accepte le formulaire et prend en compte la demande | La fonction `fonction_formulaire` passe la main à passe à la main à `traitement_formulaire` qui va potentiellement faire des modifications en base de données |
 | `Si le formulaire est mal rempli`{: .label .label-red} | | |
-| 9 | Retour à l'étape 5 | Retour à l'étape 3 (en sauvegardant les informations entrées par l'utilisateur) |
+| 9 | Retour à l'étape 5 (voire 3) | Retour à l'étape 3 (en sauvegardant les informations entrées par l'utilisateur) |
 
 De manière générale, pour implémenter correctement un formulaire avec
-Flask nous écrirons trois fonctions Python:
-* une fonction `fonction_formulaire` qui sera en charge de récupérer une requête HTTP et de faire appel à une des deux fonctions suivantes.
-* une fonction `afficher_formulaire` qui affiche le formulaire:
+Flask nous écrirons trois fonctions Python :
+* une fonction `fonction_formulaire` qui sera en charge de récupérer une requête HTTP et de faire appel à une des deux fonctions suivantes (étapes 1 à 3).
+* une fonction `afficher_formulaire` qui affiche le formulaire (étapes 3 à 8) :
   * vide lors du premier essai de remplissage
   * prérempli lors des essais supplémentaires
-* une fonction `traitement_formulaire` qui
+* une fonction `traitement_formulaire` (étape 8) qui
   * traite les entrées du formulaire préalablement validé
   * redirige l'utilisateur une fois le traitement fait
 
-L'image ci-dessus résume le fonctionnement du formulaire avec la convention précédemment décrite:
+L'image ci-dessus résume le fonctionnement du formulaire avec la convention précédemment décrite :
 ![capture d'écran montrant l'architecture d'un formulaire](/assets/img/session2/schema.png)
 
 # Un formulaire pour calculer des expressions mathématiques
@@ -61,18 +61,16 @@ de son évaluation sera affiché comme suit:
 
 ## Récupération du projet à compléter
 
-<!-- Depuis PyCharm, récupérez le contenu de la branche -->
-<!-- **formulaires**, en suivant les [instructions -->
-<!-- suivantes](git.html#r%C3%A9cup%C3%A9rer-le-code-dune-branche-git-avec-pycharm). -->
 
-Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/Marie-Donnie/ue_web_example/archive/formulaires.zip) pour récupérer une archive ZIP du [dépôt formulaires](https://github.com/Marie-Donnie/ue_web_example/tree/formulaires) permettant de démarrer cet exercice.
+
+Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/Marie-Donnie/ue_web_example/archive/formulaires.zip) permettant de démarrer cet exercice.
 
 Ce projet une application Flask basique qu'il faudra compléter.
 
 ## Ajout du formulaire dans Flask
 
 Dans le fichier `app.py`, Une fonction
-`fonction_formulaire_addition` a été définie : celle-ci est en charge de créer un formulaire et traiter les informations reçues depuis ce formulaire.
+`fonction_formulaire_addition` a été définie (l.28) : celle-ci est en charge de créer un formulaire et traiter les informations reçues depuis ce formulaire.
 Le code est le suivant:
 
 ```python
@@ -147,13 +145,13 @@ manière suivante:
 
 Nous pouvons faire les observations suivantes:
 - Chaque champ du formulaire est affichée grâce à un appel du style {% raw %}`<input type="text" name="number_a" placeholder="number_a">`{% endraw %}
-- Chaque champ du formulaire va avoir un attribut `name="nom_du_champ"`. Cette attribut sera utilisé comme clé pour stocker la valeur dans `flask.request.form` : en effet dans cette exemple, la valeur du champ de formulaire qui a pour attribut `name="foo"` sera accessible à `flask.request.form["foo"]`.
+- Dans chacun des champ du formulaire, on a un attribut `name="nom_du_champ"`. Cette attribut sera utilisé comme clé pour stocker la valeur dans `flask.request.form` : en effet dans cet exemple, la valeur du champ de formulaire qui a pour attribut `name="foo"` sera accessible à `flask.request.form["foo"]`.
 - On indique où envoyer la template avec l'instruction {% raw %} `action="{{ url_for("fonction_formulaire_addition") }}"`{% endraw %}.
-- La  fonction `url_for` prend en paramètre le nom et les arguments d'une fonction python, et retourne une URL qui cible cette fonction.
+- Cette fonction `url_for` prend en paramètre le nom et les arguments d'une fonction python, et retourne une URL qui cible cette fonction. Pour en savoir plus sur `url_for`, référez-vous à la [documentation Flask](https://flask.palletsprojects.com/en/2.0.x/api/#flask.url_for).
 
 ## Validation du formulaire
 
-La fonction de validation du formulaire doit vérifier chacun des champs obligatoire du formulairer et générer des messages d'erreurs lisibles permettant de comprendre ce qui ne va pas:
+La fonction de validation du formulaire doit vérifier chacun des champs obligatoire du formulaire et générer des messages d'erreurs lisibles permettant de comprendre ce qui ne va pas:
 
 ```python
 def formulaire_est_valide(form):
@@ -178,7 +176,8 @@ def formulaire_est_valide(form):
 ```
 
 On peut noter que:
-* les entrées d'un formulaire deviennent des attributs de l'objet `form` et sont accessibles sous forme d'attribut `flask.request.form["nom-de-l-entree"]`
+- les entrées d'un formulaire deviennent des attributs de l'objet `form` et sont accessibles sous forme d'attribut `flask.request.form["nom-de-l-entree"]`, comme montré précedemment grâce à l'attribut `name`.
+- Ici, on vérifie uniquement que les champs sont remplis.
 
 ## Affichage de messages d'erreurs
 
@@ -196,11 +195,14 @@ Ajoutons ensuite le code suivant dans le template `form_addition.html.jinja2`:
 
 {% raw %}
 ```jinja
-<ul>
-{% for error in errors %}
-    <li>{{ error }}</li>
-{% endfor %}
-</ul>
+{% if errors %}
+    Errors:
+    <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 ```
 {% endraw %}
 
@@ -231,7 +233,10 @@ d'autres balises `input`. Les balises `input` acceptent un attribut
 Pour garder les valeurs déja entrées par les utilisateurs, nous allons d'abord modifier la fonction `afficher_formulaire_addition` pour qu'elle passe le formulaire à la template:
 ```python
 def afficher_formulaire_addition(form, errors):
-    return flask.render_template("form_addition.html.jinja2", errors=errors, form=form)
+    return flask.render_template("form_addition.html.jinja2",
+                                 errors=errors,
+                                 form=form)
+
 ```
 
 Ensuite il faut modifier la template `form_addition.html.jinja2`:
@@ -261,7 +266,7 @@ Ensuite il faut modifier la template `form_addition.html.jinja2`:
 
 ## (bonus) Sécurisation du formulaire
 
-Il est possible de sécuriser un peu plus les entrées du formulaire en ajoutant cette vérification dans le code de ``:
+Il est possible de sécuriser un peu plus les entrées du formulaire en ajoutant cette vérification dans le code de `formulaire_est_valide`:
 
 ```python
 authorized_operators = ["+", "-", "*", "/", "%"]

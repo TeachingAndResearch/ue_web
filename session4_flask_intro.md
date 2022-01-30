@@ -120,7 +120,7 @@ avec deux structures de contrôle : un `for` et un `if`. Bien qu'étant
 fonctionnelle, cette fonction deviendrait difficilement lisible si le
 texte à ajouter devant une couleur était plus long.
 
-__De plus, en procédant de la sorte, le code la fonction Python
+__De plus, en procédant de la sorte, le code de la fonction Python
 contient la logique de la présentation, ce qui est en contradiction
 avec la séparation MVC.__
 
@@ -192,7 +192,7 @@ espaces (c.f. [ce
 lien](http://jinja.pocoo.org/docs/2.10/templates/#whitespace-control)).
 
 Le code de template suivant permet d'avoir un résultat identique à
-celui de la fonction en python "pur':
+celui de la fonction en python "pur":
 
 {% raw %}
 ```jinja
