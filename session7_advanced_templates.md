@@ -16,11 +16,11 @@ Ce projet contient 3 vues:
 - view_c
 
 qui ont le même code et font appel à des templates dont le code est très similaire,
-et donc affichent toutes une page web similaire, dont seule une partie du
-code HTML change. Jetez un oeil à ces fonctions et à ces templates.
+et donc affichent une page web similaire, dont seule une partie du
+code HTML change. Jetez un œil à ces fonctions et à ces templates.
 
 
-Il y a clairement duplications de code, ce qui contrevient au principe
+Il y a clairement duplication de code, ce qui contrevient au principe
 [`Do not repeat
 yourself`](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas)
 recherché lors du développement de logiciels.
@@ -51,7 +51,7 @@ ancienne valeur
 ```
 {% endraw %}
 
-On peut ensuite de définir une template "filles", héritant d'une template mère, et qui modifiera la valeur d'un des blocs de la template mère. Cela se fait en:
+On peut ensuite de définir une template "fille", héritant d'une template mère, et qui modifiera la valeur d'un des blocs de la template mère. Cela se fait en:
 1. déclarant une nouvelle template (la template fille)
 2. indiquant que la template fille étend la template mère avec l'instruction `extends`:{% raw %}
 ```jinja
@@ -65,6 +65,8 @@ nouvelle valeur
 {% endblock %}
 ```
 {% endraw %}
+
+Ce principe est par exemple utilisé pour des éléments d'un site web qui seront fixés dans un template mère quand ils ne changent pas d'une page à l'autre (header, nav, footer, ... - vous pouvez trouver la sémantique des ces éléments [ici](https://www.w3schools.com/html/html5_semantic_elements.asp)) ; dans un template fille pour la partie qui change.
 
 ### Exercice
 
@@ -207,7 +209,7 @@ qui posait les problèmes suivants:
   rendre le code plus concis, mais au final l'ensemble est moins
   lisible.
 
-La définition d'une macro dans le fichier `layout.html.jinja2` qui
+Nous allons donc définir une macro dans le fichier `layout.html.jinja2` qui
 prend deux paramètres. Ces paramètres sont réutilisables ensuite dans
 le corps de la macro:
 {% raw %}
@@ -228,9 +230,7 @@ La macro étant définie, elle est utilisable en l'appelant comme une fonction p
 {% endraw %}
 
 Le code est maintenant plus concis, et la condition `if` est plus
-lisible. Vous trouverez plus d'informations sur les macros avec le
-lien suivant
-[http://jinja.pocoo.org/docs/2.10/templates/#macros](http://jinja.pocoo.org/docs/2.10/templates/#macros).
+lisible. Vous trouverez plus d'informations sur les macros [dans la documentation de Jinja](http://jinja.pocoo.org/docs/2.10/templates/#macros).
 
 # Ajouter des fichiers CSS et Javascript avec Jinja
 
@@ -240,7 +240,7 @@ requêtes des utilisateurs.
 
 Avec Flask, il faut mettre les fichiers CSS et Javascript dans le
 dossier `static`.  Les fichiers présents dans le dossier `static` sont
-publics, et ont chacun une URL.
+publics, et ont chacun une URL. Vous pouvez donc créer un nouveau projet Flask `tp_static`.
 
 Il est possible de récupérer l'URL d'un fichier statique avec la
 fonction `url_for` comme dans l'exemple suivant:
@@ -253,17 +253,17 @@ print(fichier_css_url)
 
 ## Sous dossiers de ressources
 
-Créer trois dossiers `css`, `js` et `img` dans le dossier `static`
+Créez trois dossiers `css`, `js` et `img` dans le dossier `static`
 d'un projet Flask.
 
-Créer le fichier `static/css/style.css` avec le code css suivant:
+Créez le fichier `static/css/style.css` avec le code *css* suivant :
 ```css
 .logo {
     width: 400px;
 }
 ```
 
-Créer le fichier `static/js/script.js` avec le code suivant:
+Créez le fichier `static/js/script.js` avec le code suivant :
 ```js
 (function update_caption() {
     let caption_text = "logo IMT Atlantique";
@@ -271,12 +271,12 @@ Créer le fichier `static/js/script.js` avec le code suivant:
 })();
 ```
 
-Ensuite, faire les actions suivantes:
-1. aller à cette page
+Ensuite, vous pouvez faire les actions suivantes :
+1. allez à cette page
    [https://www.imt-atlantique.fr/fr/l-ecole/logotypes-imt-atlantique](https://www.imt-atlantique.fr/fr/l-ecole/logotypes-imt-atlantique)
-2. télécharger un des logos, le mettre dans le dossier `static/img/`
-   et le renommer `logo.jpg` (adapter l'extension de fichier à celle
-   du logo téléchargé
+2. téléchargez un des logos, mettez le dans le dossier `static/img/`
+   et renommez le `logo.jpg` (adaptez l'extension de fichier à celle
+   du logo téléchargé)
 
 Maintenant que nous avons préparé les resources statiques pour cet
 exercice, créez une template jinja
@@ -303,12 +303,12 @@ et appeler cette template depuis une nouvelle fonction Python:
 ```python
 @app.route('/static_resources_view')
 def static_resources_view():
-    return render_template("static_resources.html.jinja2")
+    return flask.render_template("static_resources.html.jinja2")
 ```
 
 En allant sur le lien
 [http://127.0.0.1:5000/static_resources_view](http://127.0.0.1:5000/static_resources_view),
-vous devriez obtenir le résultat suivant:
+vous devriez obtenir le résultat suivant :
 
 ![/assets/img/session7/static_resources.png](/assets/img/session7/static_resources.png)
 
