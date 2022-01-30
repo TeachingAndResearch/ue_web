@@ -321,6 +321,8 @@ En effet, nous l'avons fait apparaitre en modifiant le
 Web avec Javascript. Nous verrons dans une session future comment
 faire des modifications avancées avec Javascript.
 
+À noter également que si vous accédez aux outils de développeurs (dev tools) comme indiqué dans le [troubleshooting de la page annexes](https://marie-donnie.github.io/ue_web/links.html#troubleshooting), vous pouvez néanmoins bien voir la modification effectuée sur la page par Javascript.
+
 # Correction
 
 Vous pouvez récupérer une archive ZIP [tp_templates_correction.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_templates_correction.zip) contenant la correction de cette séance.

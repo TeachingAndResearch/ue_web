@@ -63,12 +63,14 @@ Quelques guides pour vous aider à débugger, bien sûr, d'autres solutions exis
 
 
 - S'il vous manque une fonction flask, vérifiez que vous avez en en-tête de votre fichier `app.py` :
-``` python
+
+```python
 import flask
 
 app = flask.Flask(__name__)
 ```
-Puis, ajouter `flask.` avant la fonction. Cela arrive avec les projets pré-générés par Pycharm.
+
+Puis, ajoutez `flask.` avant la fonction. Cela arrive avec les projets pré-générés par Pycharm.
 
 - Accéder aux dev tools sur Firefox et Chromium (et dérivés) : `F12`
 
