@@ -72,7 +72,7 @@ app = flask.Flask(__name__)
 
 Puis, ajoutez `flask.` avant la fonction. Cela arrive avec les projets pré-générés par Pycharm.
 
-- Accéder aux dev tools sur Firefox et Chromium (et dérivés) : `F12`
+- Accéder aux dev tools sur Firefox et Chromium (et dérivés) : `F12`. C'est aussi ici (entre autres) que vous pouvez trouver le bouton de responsive design.
 
 
 - Si vous avez des problèmes d'affichage après changements (le changement n'a pas l'air d'apparaître sur la page) :

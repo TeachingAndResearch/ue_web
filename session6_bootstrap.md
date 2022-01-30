@@ -4,6 +4,14 @@ excerpt: ""
 nav_order: 6
 ---
 
+
+1. TOC
+{:toc}
+
+# Introduction
+
+Nous allons d'abord revoir les bases de CSS avec ces [slides](https://0xc0de.fr/courses/Domaine/2018/slides/html-css/).
+
 Les exemples de CSS que nous avons vus jusqu'à présent étaient très
 basiques et étaient appliqués à des pages elles-mêmes très simples.
 Quand la mise en forme désirée devient plus complexe, de nouveaux
@@ -31,12 +39,6 @@ web sur le framework Bootstrap pour fournir de manière portable un site
 bien présenté et "responsive" (qui s'adapte aux différentes tailles
 d'écran).
 
-1. TOC
-{:toc}
-
-__Note: ce cours utilise la nouvelle version de Bootstrap qui est en
-beta. Vous pourrez utiliser celle-ci ou la version 4.6 pour votre
-projet si vous vous sentez plus confortable avec.__
 
 
 # Modèle de page HTML pour Bootstrap
@@ -67,7 +69,8 @@ utilisant Bootstrap :
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS de Bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
 
     <title>Titre de la page</title>
@@ -76,7 +79,7 @@ utilisant Bootstrap :
     <!-- Votre contenu -->
 
     <!-- Fichiers Javascript nécessaires pour certains composants Bootstrap -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
 </html>
@@ -132,19 +135,22 @@ en page) si l'écran est moins large que 800px :
 ```
 
 Pour que cela fonctionne, il faut mettre cette media
-querry après la règle qui définit la largeur de .paslarge
+query après la règle qui définit la largeur de `.paslarge`
 dans le cas général, car la règle active déclarée en dernier
 a priorité sur les autres en cas de conflit (si ces règles
 portent sur les mêmes éléments).
 
 Dans la version suivante de l'exemple interactif, deux media
-querries font que l'affichage est à une colonne jusqu'à 600
+queries font que l'affichage est à une colonne jusqu'à 600
 pixels de large, deux colonnes de 600 à 1200 pixels, et
 quatre colonnes au-delà de 1200 pixels :
 [http://tiny.cc/SARfbr](http://tiny.cc/SARfbr)
 
+Note : Vous pouvez afficher dans votre navigateur à quoi ressemblera la page selon plusieurs tailles d'écran prédéfinies (selon les modèles d'appareils) dans les outils de développeurs (dev tools), comme indiqué dans le [troubleshooting de la page annexes](https://marie-donnie.github.io/ue_web/links.html#troubleshooting) (`F12`), puis en cliquant sur
+![le bouton de responsive design](/assets/img/session6/responsive_button.png).
 
-# La grille Bootstrap
+
+#  La grille Bootstrap
 
 Pour simplifier le développement responsive, Bootstrap
 propose le principe de conteneur contenant des lignes à
@@ -167,8 +173,8 @@ prennent 12 colonnes (toute la largeur), sur les écrans
 moyens 6 colonnes (la moitié) et sur les grands écrans 3
 colonnes (le quart).
 
-Pour cela, nous allons utiliser les tailles d'écran
-prédéfinies dans Bootstrap :
+Pour cela, nous allons utiliser [les tailles d'écran
+prédéfinies dans Bootstrap](https://getbootstrap.com/docs/5.0/layout/grid/#grid-options) :
 * xs : ≥ 0px
 * sm : ≥ 576px
 * md : ≥ 768px
@@ -212,7 +218,7 @@ comme ceci :
 
 Nous n'avons donc plus besoin de CSS pour gérer la
 taille des éléments, donc plus besoin non plus de
-media querries !
+media queries !
 
 Exemple interactif :
 [http://tiny.cc/SARfbbs](http://tiny.cc/SARfbbs)
@@ -223,8 +229,7 @@ des éléments dans une ligne (si un élément de la ligne
 est plus haut que les autres), l'alignement et
 l'espacement horizontal des éléments dans une ligne
 (s'ils ne remplissent pas les 12 colonnes),
-l'imbriquement de grilles etc. Pour en savoir plus :
-[https://getbootstrap.com/docs/5.0/layout/grid/](https://getbootstrap.com/docs/5.0/layout/grid/)
+l'imbriquement de grilles etc. Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](https://getbootstrap.com/docs/5.0/layout/grid/).
 
 
 # Composants Bootstrap
@@ -241,14 +246,12 @@ visuelle très simplement.
 Un exemple est la classe "table" à donner à une
 balise `<table>`. D'autres classes sont disponibles
 pour personnaliser très facilement le rendu d'un
-tableau. Pour en savoir plus :
-[https://getbootstrap.com/docs/5.0/content/tables/](https://getbootstrap.com/docs/5.0/content/tables/)
+tableau. Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](https://getbootstrap.com/docs/5.0/content/tables/).
 
 ## Composants personnalisés
 
-Bootstrap propose un grand catalogue de composants
-qu'il est très facile d'utiliser. Ces composants
-sont soit de grosses améliorations de ceux fournis
+Bootstrap propose un grand catalogue de composants très facile à utiliser. Ces composants
+sont soit des améliorations de ceux fournis
 par HTML (boutons, formulaires, ...) soit des
 composants qui ne sont pas proposés par HTML et
 qu'il faudrait donc coder à la main (cartes,
@@ -265,12 +268,11 @@ la mise en forme de vos templates. N'hésitez pas
 gauche sur la documentation Bootstrap), ces
 composants sont très faciles à utiliser et les
 efforts pourraient être récompensés lors de
-l'évaluation ! :-)
+l'évaluation, faites marcher votre créativité ! :-)
 
 ### Exemple 1 : boutons Bootstrap
 
-Documentation des boutons Bootstrap :
-[https://getbootstrap.com/docs/5.0/components/buttons/](https://getbootstrap.com/docs/5.0/components/buttons/)
+Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](https://getbootstrap.com/docs/5.0/components/buttons/)
 
 ![Boutons Bootstrap](/assets/img/session6/bootstrap_buttons.png)
 
@@ -289,8 +291,7 @@ Documentation des boutons Bootstrap :
 
 ### Exemple 2 : barres de navigation
 
-Documentation des barres de navigation :
-[https://getbootstrap.com/docs/5.0/components/navbar/](https://getbootstrap.com/docs/5.0/components/navbar/)
+Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](https://getbootstrap.com/docs/5.0/components/navbar/)
 
 ![Barre de navigation Bootstrap](/assets/img/session6/bootstrap_navbar.png)
 
