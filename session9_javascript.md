@@ -13,6 +13,8 @@ iframe {
 1. TOC
 {:toc}
 
+# Javascript : les bases
+
 Nous avons vu rapidement dans
 la [session 2](session2_html.html#page-dynamique-javascript) comment
 le langage Javascript interagissait avec les éléments d'une page Web

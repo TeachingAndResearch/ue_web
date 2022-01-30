@@ -106,7 +106,7 @@ def complex_view():
         result += msg_if_not_boolean_value
 
     # envoie de la reponse sous forme textuelle
-    return flask.Response(result,
+    return Flask.Response(result,
                           mimetype="text")
 ```
 
