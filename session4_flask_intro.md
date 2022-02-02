@@ -315,7 +315,7 @@ Pour cela vous pourrez:
 - utiliser la fonction `get_engineers_in_site` qui a un site retourne les ingénieurs qui y sont affiliés
 - créer une template jinja `show_engineers_by_site.html.jinja2`
 - vous inspirer des templates vues en cours en utilisant un `for` et {% raw %}`{{ engineer.X }}`{% endraw %}
-- Suggestion: vous pouvez afficher les ingénieurs sous forme de liste HTML en utilisant la structure:
+- Suggestion : vous pouvez afficher les ingénieurs sous forme de liste HTML en utilisant la structure :
 
 ```html
 <ul>
