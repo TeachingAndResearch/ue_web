@@ -32,7 +32,7 @@ def some_function():
     return "Helloworld!"
 ```
 
-Lancer l'application Flask, et accéder à cette vue via l'URL [http://127.0.0.1:5000](http://127.0.0.1:5000):
+Lancer l'application Flask, et accéder à cette vue via l'URL [http://127.0.0.1:5000/greetings](http://127.0.0.1:5000/greetings):
 
 ![capture d'écran montrant le resultation d'un helloworld avec Flask](/assets/img/session1/screen1.png)
 
