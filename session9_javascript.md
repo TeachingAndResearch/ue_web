@@ -35,7 +35,7 @@ Javascript peut par exemple:
 # Javascript, Ajax et JQuery
 
 
-Nous allons nous appuyer pour [ces slides](https://0xc0de.fr/courses/Domaine/2018/slides/js-ajax/) pour voir plus en détail Javascript, Ajax et JQuery et comment ils fonctionnent ensemble.
+Nous allons nous appuyer sur [ces slides](https://0xc0de.fr/courses/Domaine/2018/slides/js-ajax/) pour voir plus en détail Javascript, Ajax et JQuery et comment ils fonctionnent ensemble.
 
 
 # Trier un tableau

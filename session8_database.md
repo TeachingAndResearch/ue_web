@@ -66,7 +66,7 @@ from database.database import db, init_database
 2. après la définition de la variable `app`, ajouter les lignes suivantes:
 ```python
 db.init_app(app) # (1) flask prend en compte la base de donnee
-with app.test_request_context(): # (2) bloc execute a l'initialisation de Flask
+with app.test_request_context(): # (2) bloc exécuté à l'initialisation de Flask
     init_database()
 ```
 
@@ -76,7 +76,7 @@ d'initialiser la base de données quand l'application est démarrée.
 
 Si nous lancions Flask avec seulement ces lignes:
 - la base de données serait stockée à un endroit inconnu sur l'ordinateur
-- quelques messages d'avertissement apparaissent dans la console
+- quelques messages d'avertissement apparaitraient dans la console
 
 Pour résoudre ces deux points, ajouter les instructions suivantes dans
 le fichier `app.py`, juste après la définition de la variable `app`:
@@ -200,7 +200,7 @@ Nous aurons les arités suivantes:
 - Un sport peut être associé à plusieurs équipes
 
 Nous avons donc deux relations:
-- une relation OneToMany entre équipe et sport.
+- une relation OneToMany entre sport et équipe.
 - une relation ManyToMany entre joueurs et équipes.
 
 Vous pouvez récupérer une archive de code [tp_relations_flask.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_relations_flask.zip),
