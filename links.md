@@ -78,3 +78,6 @@ Puis, ajoutez `flask.` avant la fonction. Cela arrive avec les projets pré-gén
 - Si vous avez des problèmes d'affichage après changements (le changement n'a pas l'air d'apparaître sur la page) :
   - <https://www.howtogeek.com/672607/how-to-hard-refresh-your-web-browser-to-bypass-your-cache/>
   - <https://www.minitool.com/news/clear-cache-for-one-site.htm>
+  Vous pouvez aussi désactiver le cache quand les devtools sont utilisés :
+  - <https://themightymo.com/how-to-disable-browser-cache-in-firefox-dev-tools/>
+  - <https://stackoverflow.com/questions/46341392/chrome-devtools-disable-cache-what-does-it-actually-do-apart-from-nothing-fo>
