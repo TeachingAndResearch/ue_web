@@ -38,10 +38,10 @@ Javascript peut par exemple:
 Nous allons nous appuyer sur [ces slides](https://0xc0de.fr/courses/Domaine/2018/slides/js-ajax/) pour voir plus en détail Javascript, Ajax et JQuery et comment ils fonctionnent ensemble.
 
 
-# Trier un tableau
+# Trier et filtrer un tableau
 
-Javascript permet de modifier des parties de pages en réaction à un évènement.
-L'une de ses utilisations consiste à trier un tableau sans recharger la page où il est contenu, ce que nous allons faire maintenant.
+Javascript permet donc de modifier des parties de pages en réaction à un évènement.
+L'une de ses utilisations consiste à trier ou filtrer un tableau sans recharger la page où il est contenu, ce que nous allons faire maintenant.
 
 Tout d'abord, téléchargez le projet [td_javascript_sort.zip](https://github.com/Marie-Donnie/ue_web_example/archive/td_javascript_sort.zip) et ouvrez-le dans Pycharm.
 Cette archive contient:
@@ -101,3 +101,26 @@ function compareField(field) {
   }
 }
 ```
+
+## Instructions
+
+1. Divisez vous en deux groupes.
+2. Chaque groupe remplit la fonction `onLoad()` qui va appeler :
+  - `filterRows` quand le champ `filter-friends` est rempli
+  - `sortByField` quand l'un des éléments du haut du tableau est cliqué.
+3. Chaque groupe se charge de faire fonctionner les fonctions appelées (`filterRows` et `sortByField`).
+4. Une fois les deux fonctions remplies, vous expliquerez à l'autre groupe:
+  - le fonctionnement de la fonction avec démonstration
+  - les choix faits dans différentes approches
+  - les difficultés rencontrées, comment elles ont été résolues en expliquant pourquoi le choix final permet le bon fonctionnement.
+5. Chaque groupe présente au professeur la fonction de l'autre groupe (et bien sûr, il y aura des questions, comprenez bien ce que les autres ont fait).
+
+
+
+# Afficher des données reçues en format JSON par Ajax
+
+Les requêtes AJAX (Asynchronous Javascript And XML) permettent via différentes technologies du web de manipuler des données (principalement en JSON) pour encore une fois actualiser des morceaux de page sans devoir recharger son entièreté.
+
+Ici, nous allons apprendre à manipuler ces données pour les afficher.
+
+Téléchargez le projet [td_ajax.zip](https://github.com/Marie-Donnie/ue_web_example/archive/td_ajax.zip) et ouvrez-le dans Pycharm.
