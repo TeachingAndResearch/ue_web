@@ -1,5 +1,5 @@
 ---
-title: Bonus: faire vos propres pages web
+title: Bonus - Faire vos propres pages web
 excerpt: ""
 nav_order: 11
 ---
