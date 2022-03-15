@@ -255,3 +255,11 @@ Cela vous aidera à accéder à ces fichiers dans vos href, par exemple pour inc
 ```
 <link rel="stylesheet" href="/assets/css/moncss.css">
 ```
+
+
+## Le processus
+
+Une fois que vous avez fait vos pages (attention, si vous êtes sur l'interface web, chaque changement d'un fichier entraîne un commit et donc l'activation de la pipeline du CI/CD (continuous integration and continuous delivery, en gros le workflow automatisé) de Github, et donc modifier directement votre site web (vous pouvez vérifier l'avancée de ce workflow dans l'onglet "Actions" de votre projet).
+
+
+Vous pouvez voir le processus de build sur [la page Jekyll concernée](https://jekyllrb.com/docs/rendering-process/), rien n'a expliquer de plus sur le sujet.
