@@ -20,8 +20,7 @@ nav_order: 0
 
 ## Enseignants
 
-- Adrien Lebre : adrien.lebre@imt-atlantique.fr
-- Marie Delavergne : marie.delavergne@imt-atlantique.fr
+- Remous-Aris Koutsiamanis : remous-aris.koutsiamanis@imt-atlantique.fr
 
 ## Auteurs du cours
 
