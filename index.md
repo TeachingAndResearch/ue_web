@@ -1,6 +1,5 @@
 ---
 title: Accueil
-feature_image: "assets/img/clouds.png"
 excerpt: ""
 nav_order: 0
 ---
