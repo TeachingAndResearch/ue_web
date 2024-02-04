@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  jekyll:
+    image: jekyll/jekyll
+    command: >
+      jekyll serve \
+      --watch \
+      --force_polling \
+      --drafts \
+      --unpublished \
+      --future \
+      --verbose \
+      --trace \
+      --strict_front_matter \
+      -d /tmp/_site
+    ports:
+      - 4000:4000  # Serves the site on port 4000. Change this if you have other apps running on that port
+    # A simple healthcheck to tell Docker that the site is up and running
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - .:/srv/jekyll  # Mount the project into the pwd of the Docker container 
