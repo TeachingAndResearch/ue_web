@@ -26,7 +26,7 @@ On peut en tirer trois informations :
 
 ## Côté client
 
-![affichage d'une page côté client](assets/img/session1/client_get.png)
+![affichage d'une page côté client](assets/img/session3/client_get.png)
 
 Quand l'utilisateur demande au navigateur internet de voir cette page (en
 tapant son adresse ou en cliquant sur un lien y menant), ce dernier envoie
@@ -37,18 +37,18 @@ ainsi que des liens vers les ressources complémentaires utiles à l'affichage
 de la page. À ce stade, si le navigateur affichait la page à l'utilisateur,
 elle ressemblerait à ça :
 
-![rendu de la page sans CSS ni Javascript](assets/img/session1/nocss.png)
+![rendu de la page sans CSS ni Javascript](assets/img/session3/nocss.png)
 
 Les ressources complémentaires que le navigateur récupère ensuite (grâce à
 des requêtes GET similaires à la requête de la page) comprennent : les images,
 vidéos, sons, etc., mais surtout les feuilles de style CSS et les scripts
 Javascript. On obtient alors le rendu suivant :
 
-![rendu de la page avec CSS et Javascript](assets/img/session1/withcss.png)
+![rendu de la page avec CSS et Javascript](assets/img/session3/withcss.png)
 
 ## Côté serveur
 
-![affichage d'une page côté serveur](assets/img/session1/server_get.png)
+![affichage d'une page côté serveur](assets/img/session3/server_get.png)
 
 Dans la sous-section précédente, nous avons vu que le serveur construisait une
 page qui était envoyée au navigateur web de l'utilisateur (le client). Nous
@@ -68,7 +68,7 @@ la barre supérieure est commune au site Facebook entier, tandis que le bandeau
 de page à gauche est commun à toutes les pages Facebook. Voici une représentation
 visuelle du template de page Facebook :
 
-![représentation visuelle du template de page Facebook](assets/img/session1/template.png)
+![représentation visuelle du template de page Facebook](assets/img/session3/template.png)
 
 Les "trous" (indiqués sur l'image par des noms entre accolades pour le texte et des
 fonds verts pour les images) sont ensuite remplis en récupérant dans un premier temps les
@@ -84,7 +84,7 @@ Considérons un cas où le client envoie des informations au serveur que ce dern
 traiter : l'envoi d'un commentaire sur une publication. Voici à quoi ce formulaire simple
 ressemble :
 
-![formulaire d'envoi d'un commentaire](assets/img/session1/emptycomment.png)
+![formulaire d'envoi d'un commentaire](assets/img/session3/emptycomment.png)
 
 À l'envoi, ce formulaire contient trois informations :
 
@@ -94,7 +94,7 @@ ressemble :
 
 ## Côté client
 
-![affichage d'une page côté client](assets/img/session1/client_post.png)
+![affichage d'une page côté client](assets/img/session3/client_post.png)
 
 Quand l'utilisateur demande la publication du commentaire, le navigateur envoie une
 requête `POST '/api/graphql/'` contenant le message entré par l'utilisateur et le
@@ -104,7 +104,7 @@ s'est bien passé), et un des scripts Javascript de la page Facebook va alors me
 
 ## Côté serveur
 
-![affichage d'une page côté client](assets/img/session1/server_post.png)
+![affichage d'une page côté client](assets/img/session3/server_post.png)
 
 À la réception de la requête `POST`, l'application serveur analyse la demande et appelle
 une fonction dont le but est de poster le commentaire d'une publication. Cette dernière

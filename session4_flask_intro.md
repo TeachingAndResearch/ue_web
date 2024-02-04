@@ -34,7 +34,7 @@ def some_function():
 
 Lancer l'application Flask, et accéder à cette vue via l'URL [http://127.0.0.1:5000/greetings](http://127.0.0.1:5000/greetings):
 
-![capture d'écran montrant le resultation d'un helloworld avec Flask](assets/img/session1/screen1.png)
+![capture d'écran montrant le resultation d'un helloworld avec Flask](assets/img/session4/screen1.png)
 
 Nous pouvons faire les observations suivantes:
 
@@ -63,7 +63,7 @@ def compute_sum(lang, a, b):
 Quand on accède à l'URL [http://127.0.0.1:5000/sum/en/3/5](http://127.0.0.1:5000/sum/en/3/5), on obtient le
 résultat suivant:
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen5.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session4/screen5.png)
 
 Les différents types acceptés nativement dans Flask sont trouvables [ici](https://exploreflask.com/en/latest/views.html#url-converters).
 

@@ -23,9 +23,9 @@ Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](
 
 Il faut exécuter le programme d'installation sur votre machine. Au cours de l'installation, utilisez les paramètres par défaut. **Il est possible que le programme d'installation vous demande d'entrer un mot de passe administrateur. Dans ce cas, entrez le mot de passe de votre compte.**
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen2.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen2.png)
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen4.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen4.png)
 
 Vous pouvez quitter le programme d'installation : Miniconda est maintenant installé sur l'ordinateur.
 
@@ -43,17 +43,17 @@ Démarrez le programme d'installation récupéré sur le site [https://www.jetbr
 
 Une fois l'installation terminée avec succès, lancez "PyCharm". Vous devriez voir apparaitre un écran d'accueil qui ressemble à cela :
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen1.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen1.png)
 
 ## Vérification de l'installation
 
 Pour vérifier que l'installation de "PyCharm" et "Miniconda" est fonctionnelle, nous allons créer un projet basique. Sur l'écran d'accueil de "PyCharm", cliquez sur *create new project* :
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen13.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen13.png)
 
 Un écran vous demandant des renseignements sur le projet apparaitra :
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen9.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen9.png)
 
 Appliquez les actions suivantes:
 1. Sélectionnez **Flask** comme type de projet
@@ -65,20 +65,20 @@ Appliquez les actions suivantes:
 PyCharm va configurer le nouveau projet et analyser votre installation de Python, **ce qui peut prendre quelques minutes**. 
 Finalement, une fenêtre affichant le code du projet exemple apparaitra :
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen14.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen14.png)
 
 Nous allons lancer le projet afin de voir si **Python** et **Flask** sont bien installés. Pour cela, cliquez sur l'icône en forme d'insecte en haut à droite de la fenêtre PyCharm :
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen10.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen10.png)
 
 Une console devrait apparaitre en bas de votre fenêtre PyCharm:
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen11.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen11.png)
 
 
 Avec votre navigateur web, tapez l'[URL](https://fr.wikipedia.org/wiki/Uniform_Resource_Locator) indiquée dans la console : [http://127.0.0.1:5000](http://127.0.0.1:5000). Un texte devrait apparaitre dans le navigateur:
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session0/screen8.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen8.png)
 
 Si ce que vous obtenez correspond à la capture d'écran ci-dessus, alors votre environnement de développement est correctement configuré. 
 **Si ce n'est pas le cas, demandez de l'aide à l'enseignant !**
@@ -96,26 +96,26 @@ Le projet d'exemple est hébergé sur Github, et une archive y est récupérable
 Nous vous demandons de:
 1. Télécharger l'archive ZIP via le lien précédent
 2. Extraire cette archive
-![extraction de l'archive zip](assets/img/session0/screen_install_0.png)
+![extraction de l'archive zip](assets/img/session1/screen_install_0.png)
 3. Sur la page d'accueil PyCharm, cliquer sur **ouvrir**
-![extraction de l'archive zip](assets/img/session0/screen_install_1.png)
+![extraction de l'archive zip](assets/img/session1/screen_install_1.png)
 4. Sélectionner le dossier où vous avez extrait l'archive ZIP et cliquez sur OK
-![extraction de l'archive zip](assets/img/session0/screen_install_2.png)
+![extraction de l'archive zip](assets/img/session1/screen_install_2.png)
 5. Attendre que PyCharm charge le projet:
-![extraction de l'archive zip](assets/img/session0/screen_install_3.png)
+![extraction de l'archive zip](assets/img/session1/screen_install_3.png)
 6. Lancer le projet. **Si vous rencontrez une erreur, prévenez l'enseignant!**
 
 ## Configuration du projet avec le mode _Flask_ et le mode _deboggage_
 
 1. Cliquer sur **Ajouter une configuration**
-![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session0/flask_debug_0.png)
+![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session1/flask_debug_0.png)
 2. Sélectionner **Flask server**
-![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session0/flask_debug_1.png)
+![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session1/flask_debug_1.png)
 3. Sélectionner **Script path** et cliquer sur l'icône "Dossier"
 4. Choisir le fichier **app.py** dans le dossier de votre projet Flask et cliquer sur **OK**
-![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session0/flask_debug_2.png)
+![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session1/flask_debug_2.png)
 5. Cocher **FLASK_DEBUG** et cliquer sur **OK**
 6. Vérifier qu'un environnement d'exécution est bien sélectionné:
-![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session0/flask_debug_3.png)
+![capture d'écran montrant comment configurer le mode flask et le mode debug](assets/img/session1/flask_debug_3.png)
 7. Lancer le projet et regarder si une erreur apparait. **Si une erreur apparait, contactez l'enseignant**
-![capture d'écran montrant comment installer les dépendances logicielles](assets/img/session0/screen18.png)
+![capture d'écran montrant comment installer les dépendances logicielles](assets/img/session1/screen18.png)
