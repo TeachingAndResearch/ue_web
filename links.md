@@ -6,13 +6,13 @@ nav_order: 11
 
 # Documents annexes
 
-- slides du cours : [cours](/assets/pdf/slides.pdf)
+- slides du cours : [cours](assets/pdf/slides.pdf)
 - slides pre-bootstrap : [html-css](https://0xc0de.fr/courses/Domaine/2018/slides/html-css/)
 - slides javascript/ajax : [javascript](https://0xc0de.fr/courses/Domaine/2018/slides/js-ajax/)
 
 # Projet 2023-2024: TBD
 
-- cahier des charges pour le projet : TBD<!--[UE-Web-CdC-2021.pdf](/assets/pdf/UE-Web-CdC-2022.pdf)-->
+- cahier des charges pour le projet : TBD<!--[UE-Web-CdC-2021.pdf](assets/pdf/UE-Web-CdC-2022.pdf)-->
 
 
 # Liens utiles

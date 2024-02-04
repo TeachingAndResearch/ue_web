@@ -115,10 +115,10 @@ Considérons l'exemple interactif suivant :
 [http://tiny.cc/SARfb](http://tiny.cc/SARfb)
 
 L'affichage est correct en écran large :
-![Site en écran large](/assets/img/session6/fakebook_wide.png)
+![Site en écran large](assets/img/session6/fakebook_wide.png)
 
 Mais illisible quand l'écran est plus petit :
-![Site en écran large](/assets/img/session6/fakebook_small.png)
+![Site en écran large](assets/img/session6/fakebook_small.png)
 
 Une solution est de, quand l'écran est trop petit,
 n'afficher qu'une seule colonne par ligne dans la partie
@@ -147,7 +147,7 @@ quatre colonnes au-delà de 1200 pixels :
 [http://tiny.cc/SARfbr](http://tiny.cc/SARfbr)
 
 Note : Vous pouvez afficher dans votre navigateur à quoi ressemblera la page selon plusieurs tailles d'écran prédéfinies (selon les modèles d'appareils) dans les outils de développeurs (dev tools), comme indiqué dans le [troubleshooting de la page annexes](https://marie-donnie.github.io/ue_web/links.html#troubleshooting) (`F12`), puis en cliquant sur
-![le bouton de responsive design](/assets/img/session6/responsive_button.png).
+![le bouton de responsive design](assets/img/session6/responsive_button.png).
 
 
 #  La grille Bootstrap
@@ -160,7 +160,7 @@ taille de l'écran. Si la somme des largeurs dans une
 ligne fait plus de 12, les éléments qui dépassent sont
 automatiquement mis sur une nouvelle ligne.
 
-![La grille Bootstrap](/assets/img/session6/bootstrap_grid.png)
+![La grille Bootstrap](assets/img/session6/bootstrap_grid.png)
 
 Ainsi, pour reproduire l'exemple précédent avec Bootstrap,
 il suffit de :
@@ -274,7 +274,7 @@ l'évaluation, faites marcher votre créativité ! :-)
 
 Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](https://getbootstrap.com/docs/5.0/components/buttons/)
 
-![Boutons Bootstrap](/assets/img/session6/bootstrap_buttons.png)
+![Boutons Bootstrap](assets/img/session6/bootstrap_buttons.png)
 
 ```html
 <button type="button" class="btn btn-primary">Primary</button>
@@ -293,7 +293,7 @@ Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](
 
 Pour en savoir plus, vous pouvez vous référer à [la documentation Bootstrap](https://getbootstrap.com/docs/5.0/components/navbar/)
 
-![Barre de navigation Bootstrap](/assets/img/session6/bootstrap_navbar.png)
+![Barre de navigation Bootstrap](assets/img/session6/bootstrap_navbar.png)
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

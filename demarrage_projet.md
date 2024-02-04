@@ -20,7 +20,7 @@ Cette archive contient:
 
 Le modèle de données correspond à l'organisation suivante:
 
-![diagramme de classe de la base de données fournies](/assets/img/projet_demarrage/mcd.png)
+![diagramme de classe de la base de données fournies](assets/img/projet_demarrage/mcd.png)
 
 La base de données répond aux contraintes suivantes
 - Des ingénieurs ont validé des compétences en passant des certifications

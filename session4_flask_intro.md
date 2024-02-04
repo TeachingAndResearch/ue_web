@@ -34,7 +34,7 @@ def some_function():
 
 Lancer l'application Flask, et accéder à cette vue via l'URL [http://127.0.0.1:5000/greetings](http://127.0.0.1:5000/greetings):
 
-![capture d'écran montrant le resultation d'un helloworld avec Flask](/assets/img/session1/screen1.png)
+![capture d'écran montrant le resultation d'un helloworld avec Flask](assets/img/session1/screen1.png)
 
 Nous pouvons faire les observations suivantes:
 
@@ -63,7 +63,7 @@ def compute_sum(lang, a, b):
 Quand on accède à l'URL [http://127.0.0.1:5000/sum/en/3/5](http://127.0.0.1:5000/sum/en/3/5), on obtient le
 résultat suivant:
 
-![capture d'écran montrant le programme d'installation de miniconda](/assets/img/session1/screen5.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen5.png)
 
 Les différents types acceptés nativement dans Flask sont trouvables [ici](https://exploreflask.com/en/latest/views.html#url-converters).
 
@@ -112,7 +112,7 @@ def complex_view():
 
 En visitant l'URL
 [http://127.0.0.1:5000/complex_view](http://127.0.0.1:5000/complex_view),
-vous obtiendez ce resultat: ![capture d'écran montrant le résultat du premier programme avec une vue complexe](/assets/img/session4/complex_view.png)
+vous obtiendez ce resultat: ![capture d'écran montrant le résultat du premier programme avec une vue complexe](assets/img/session4/complex_view.png)
 
 
 La fonction `complex_view` retourne une réponse textuelle construite
@@ -171,7 +171,7 @@ def complex_view_template():
 
 En visitant la page [http://127.0.0.1:5000/complex_view_template](http://127.0.0.1:5000/complex_view_template), vous obtiendez un résultat proche de:
 
-![capture d'écran montrant le resultat du premier programme utilisant les templates](/assets/img/session4/complex_view_template.png)
+![capture d'écran montrant le resultat du premier programme utilisant les templates](assets/img/session4/complex_view_template.png)
 
 
 On peut faire les observations suivantes:
@@ -208,7 +208,7 @@ celui de la fonction en python "pur":
 ```
 {% endraw %}
 
-![capture d'écran montrant le resultat du premier programme utilisant les templates et gestion des espaces](/assets/img/session4/complex_view_template_1.png)
+![capture d'écran montrant le resultat du premier programme utilisant les templates et gestion des espaces](assets/img/session4/complex_view_template_1.png)
 
 # Envoyer du HTML à l'utilisateur
 
@@ -302,7 +302,7 @@ def show_engineer_by_id(engineer_id):
 ```
 
 En visitant la page [http://127.0.0.1:5000/engineer/id/1](http://127.0.0.1:5000/engineer/id/1), le résultat suivant devrait être affiché:
-![description d'un ingénieur](/assets/img/session4/engineer_description.png)
+![description d'un ingénieur](assets/img/session4/engineer_description.png)
 
 
 # Exercice

@@ -185,7 +185,7 @@ qu'elle prenne en compte les précédentes variables:
 En allant sur l'URL
 [http://127.0.0.1:5000/view/b](http://127.0.0.1:5000/view/b), vous
 devriez obtenir le résultat suivant:
-![/assets/img/session7/template_b.png](/assets/img/session7/template_b.png)
+![assets/img/session7/template_b.png](assets/img/session7/template_b.png)
 
 
 ## Macro
@@ -310,11 +310,11 @@ En allant sur le lien
 [http://127.0.0.1:5000/static_resources_view](http://127.0.0.1:5000/static_resources_view),
 vous devriez obtenir le résultat suivant :
 
-![/assets/img/session7/static_resources.png](/assets/img/session7/static_resources.png)
+![assets/img/session7/static_resources.png](assets/img/session7/static_resources.png)
 
 En affichant le code source de la page, on peut constater que le texte
 sous le logo de l'IMT n'apparait pas dans le code HTML:
-![/assets/img/session7/static_resources_source.png](/assets/img/session7/static_resources_source.png)
+![assets/img/session7/static_resources_source.png](assets/img/session7/static_resources_source.png)
 
 En effet, nous l'avons fait apparaitre en modifiant le
 [DOM](https://fr.wikipedia.org/wiki/Document_Object_Model) de la page

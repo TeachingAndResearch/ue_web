@@ -42,7 +42,7 @@ Flask nous écrirons trois fonctions Python :
   * redirige l'utilisateur une fois le traitement fait
 
 L'image ci-dessus résume le fonctionnement du formulaire avec la convention précédemment décrite :
-![capture d'écran montrant l'architecture d'un formulaire](/assets/img/session2/schema.png)
+![capture d'écran montrant l'architecture d'un formulaire](assets/img/session2/schema.png)
 
 # Un formulaire pour calculer des expressions mathématiques
 
@@ -50,13 +50,13 @@ Dans cette section nous allons coder un formulaire qui permettra de
 calculer des expressions mathématiques avec un formulaire. Le
 formulaire ressemblera à cela:
 
-![capture d'écran d'un formulaire pour calculer des expressions mathématiques](/assets/img/session2/form_math_1.png)
+![capture d'écran d'un formulaire pour calculer des expressions mathématiques](assets/img/session2/form_math_1.png)
 
 En validant le formulaire figurant dans l'image précédente,
 l'expression mathématique correspondante sera calculée, et le résultat
 de son évaluation sera affiché comme suit:
 
-![capture d'écran du résultat de l'évaluation d'une expression mathématique](/assets/img/session2/form_math_2.png)
+![capture d'écran du résultat de l'évaluation d'une expression mathématique](assets/img/session2/form_math_2.png)
 
 
 ## Récupération du projet à compléter
@@ -207,7 +207,7 @@ Ajoutons ensuite le code suivant dans le template `form_addition.html.jinja2`:
 {% endraw %}
 
 Cela devrait afficher un message d'erreur dans la page de création de formulaire:
-![/assets/img/session2/form_error_msg.png](/assets/img/session2/form_error_msg.png)
+![assets/img/session2/form_error_msg.png](assets/img/session2/form_error_msg.png)
 
 C'est un progrès cependant, les valeurs déjà entrées par les
 utilisateurs sont perdues, forçant les utilisateurs à les
@@ -227,7 +227,7 @@ d'autres balises `input`. Les balises `input` acceptent un attribut
 <input type="text" name="foo" placeholder="foo" value="!!!">
 ```
 
-![/assets/img/session2/prefilled_forms.png](/assets/img/session2/prefilled_forms.png)
+![assets/img/session2/prefilled_forms.png](assets/img/session2/prefilled_forms.png)
 
 
 Pour garder les valeurs déja entrées par les utilisateurs, nous allons d'abord modifier la fonction `afficher_formulaire_addition` pour qu'elle passe le formulaire à la template:
@@ -262,7 +262,7 @@ Ensuite il faut modifier la template `form_addition.html.jinja2`:
 ```
 {% endraw %}
 
-![/assets/img/session2/prefilled_forms2.png](/assets/img/session2/prefilled_forms2.png)
+![assets/img/session2/prefilled_forms2.png](assets/img/session2/prefilled_forms2.png)
 
 ## (bonus) Sécurisation du formulaire
 
@@ -275,4 +275,4 @@ if operator not in authorized_operators:
     errors += [f"operator must be in {authorized_operators}"]
 ```
 
-![/assets/img/session2/prefilled_forms3.png](/assets/img/session2/prefilled_forms3.png)
+![assets/img/session2/prefilled_forms3.png](assets/img/session2/prefilled_forms3.png)

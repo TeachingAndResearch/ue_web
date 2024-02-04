@@ -276,7 +276,7 @@ sports = Sport.query.all()
 
 A parti de l'exemple récupéré avec l'archive [tp_relations_flask.zip](https://github.com/Marie-Donnie/ue_web_example/archive/tp_relations_flask.zip)
 en allant sur l'URL [http://localhost:5000/test](http://localhost:5000/test), vous devriez avoir le résultat suivant:
-![/assets/img/session8/sport.png](/assets/img/session8/sport.png)
+![assets/img/session8/sport.png](assets/img/session8/sport.png)
 
 # Manipulation de dates
 
