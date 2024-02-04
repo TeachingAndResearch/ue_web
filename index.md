@@ -18,7 +18,7 @@ nav_order: 0
 | séance 3 | projet                 |
 | séance 4 | projet                 |
 
-## Enseignants
+## Enseignant
 
 - Remous-Aris Koutsiamanis : remous-aris.koutsiamanis@imt-atlantique.fr
 

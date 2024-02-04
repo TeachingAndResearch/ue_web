@@ -19,7 +19,7 @@ environnement Python fonctionnel, vous pouvez sauter cette étape.
 
 ## Installation de Miniconda
 
-Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html) pour télécharger le programme d'installation qui correspond à votre configuration. Faites attention à choisir __Python 3.7 MINIMUM__.
+Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html) pour télécharger le programme d'installation qui correspond à votre configuration. Faites attention à choisir __Python 3.7 MINIMUM__. Normalement, la version actuelle est Python 3.11.
 
 Il faut exécuter le programme d'installation sur votre machine. Au cours de l'installation, utilisez les paramètres par défaut. **Il est possible que le programme d'installation vous demande d'entrer un mot de passe administrateur. Dans ce cas, entrez le mot de passe de votre compte.**
 
@@ -29,7 +29,7 @@ Il faut exécuter le programme d'installation sur votre machine. Au cours de l'i
 
 Vous pouvez quitter le programme d'installation : Miniconda est maintenant installé sur l'ordinateur.
 
-**Si l'installation n'a pas fonctionné correctement ou des messages d'erreur sont apparus, parlez-en à un des enseignants afin de ne pas prendre de retard sur la session.**
+**Si l'installation n'a pas fonctionné correctement ou des messages d'erreur sont apparus, parlez-en à l'enseignant afin de ne pas prendre de retard sur la session.**
 
 ## Installation et configuration de PyCharm
 
@@ -39,7 +39,7 @@ Bien que la version *PyCharm Community* puisse être suffisante pour ce module, 
 
 Démarrez le programme d'installation récupéré sur le site [https://www.jetbrains.com/pycharm/download](https://www.jetbrains.com/pycharm/download), et continuez avec une installation utilisant les paramètres par défaut.
 
-**Si l'installation n'a pas fonctionné correctement ou des messages d'erreur sont apparus, parlez-en à un des enseignants afin de ne pas prendre de retard sur la session.**
+**Si l'installation n'a pas fonctionné correctement ou des messages d'erreur sont apparus, parlez-en à l'enseignant afin de ne pas prendre de retard sur la session.**
 
 Une fois l'installation terminée avec succès, lancez "PyCharm". Vous devriez voir apparaitre un écran d'accueil qui ressemble à cela:
 
@@ -83,8 +83,7 @@ Avec votre navigateur web, tapez l'[URL](https://fr.wikipedia.org/wiki/Uniform_R
 
 Si ce que vous obtenez correspond à la capture d'écran ci-dessus,
 alors votre environnement de développement est correctement
-configuré. **Si ce n'est pas le cas, demandez de l'aide à un des
-enseignants !**
+configuré. **Si ce n'est pas le cas, demandez de l'aide à l'enseignant !**
 
 ## Récupération d'un projet existant depuis une archive ZIP
 
@@ -111,7 +110,7 @@ Nous vous demandons de:
 ![extraction de l'archive zip](/assets/img/session0/screen_install_2.png)
 5. Attendre que PyCharm charge le projet:
 ![extraction de l'archive zip](/assets/img/session0/screen_install_3.png)
-6. Lancer le projet. **Si vous rencontrez une erreur, prévenez un des enseignants!**
+6. Lancer le projet. **Si vous rencontrez une erreur, prévenez l'enseignant!**
 
 ## Configuration du projet avec le mode _Flask_ et le mode _deboggage_
 
@@ -125,5 +124,5 @@ Nous vous demandons de:
 5. Cocher **FLASK_DEBUG** et cliquer sur **OK**
 6. Vérifier qu'un environnement d'exécution est bien sélectionné:
 ![capture d'écran montrant comment configurer le mode flask et le mode debug](/assets/img/session0/flask_debug_3.png)
-7. Lancer le projet et regarder si une erreur apparait. **Si une erreur apparait, contactez un des enseignants**
+7. Lancer le projet et regarder si une erreur apparait. **Si une erreur apparait, contactez l'enseignant**
 ![capture d'écran montrant comment installer les dépendances logicielles](/assets/img/session0/screen18.png)
