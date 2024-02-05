@@ -63,7 +63,7 @@ de son évaluation sera affiché comme suit:
 
 
 
-Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/Marie-Donnie/ue_web_example/archive/formulaires.zip) permettant de démarrer cet exercice.
+Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/formulaires.zip) permettant de démarrer cet exercice.
 
 Ce projet une application Flask basique qu'il faudra compléter.
 

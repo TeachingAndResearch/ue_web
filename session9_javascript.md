@@ -44,7 +44,7 @@ Nous allons nous appuyer sur [ces slides](https://0xc0de.fr/courses/Domaine/2018
 Javascript permet donc de modifier des parties de pages en réaction à un évènement.
 L'une de ses utilisations consiste à trier ou filtrer un tableau sans recharger la page où il est contenu, ce que nous allons faire maintenant.
 
-Tout d'abord, téléchargez le projet [td_javascript_sort.zip](https://github.com/Marie-Donnie/ue_web_example/archive/td_javascript_sort.zip) et ouvrez-le dans Pycharm.
+Tout d'abord, téléchargez le projet [td_javascript_sort.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/td_javascript_sort.zip) et ouvrez-le dans Pycharm.
 Cette archive contient:
 - un dossier `database` qui contient les fichiers relatifs à la création d'une base de données sqlite comme vu précédemment. Le modèle ici est simplement des utilisateurs qui ont un `username` et un `age`.
 - un dossier `templates`, contenant la seule vue du projet, `index.html.jinja2`, qui va afficher un tableau des utilisateurs de la base de données.
@@ -124,6 +124,6 @@ Les requêtes AJAX (Asynchronous Javascript And XML) permettent via XMLHttpReque
 
 Ici, nous allons apprendre à manipuler ces données pour les afficher dynamiquement dans une page.
 
-Téléchargez le projet [td_ajax.zip](https://github.com/Marie-Donnie/ue_web_example/archive/td_ajax.zip) et ouvrez-le dans Pycharm.
+Téléchargez le projet [td_ajax.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/td_ajax.zip) et ouvrez-le dans Pycharm.
 
 Attendez le reste des instructions :)

@@ -9,7 +9,7 @@ order: 11
 
 # Introduction
 
-Pour vous aider à avancer dans le projet, nous vous fournissons un modèle de données que vous trouverez dans l'archive [projet_demarrage.zip](https://github.com/Marie-Donnie/ue_web_example/archive/projet_demarrage.zip).
+Pour vous aider à avancer dans le projet, nous vous fournissons un modèle de données que vous trouverez dans l'archive [projet_demarrage.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/projet_demarrage.zip).
 
 Cette archive contient:
 - Sept classes modèles représentant le SI pour l'application d'affectations de missions dans une SSII

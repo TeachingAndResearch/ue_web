@@ -35,7 +35,7 @@ Petits tutos sur comment gérer les utilisateurs en Flask avec Flask-login :
 - <https://realpython.com/using-flask-login-for-user-management-with-flask/>
 - <https://pythonbasics.org/flask-login/>
 - <https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login>
-- Si aucun des liens n'est utile, vous pouvez aller voir [ce petit exemple](https://github.com/Marie-Donnie/ue_web_example/archive/authentication_example.zip).
+- Si aucun des liens n'est utile, vous pouvez aller voir [ce petit exemple](https://github.com/TeachingAndResearch/ue_web_example/archive/authentication_example.zip).
 
 ## Aller plus loin
 
