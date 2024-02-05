@@ -122,7 +122,7 @@ texte à ajouter devant une couleur était plus long.
 
 __De plus, en procédant de la sorte, le code de la fonction Python
 contient la logique de la présentation, ce qui est en contradiction
-avec la séparation MVC.__
+avec la [séparation MVC](https://developer.mozilla.org/en-US/docs/Glossary/MVC).__
 
 ## La même vue construite avec une template Jinja
 
