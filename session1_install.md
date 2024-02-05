@@ -23,9 +23,11 @@ Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](
 
 Il faut exécuter le programme d'installation sur votre machine. Au cours de l'installation, utilisez les paramètres par défaut. **Il est possible que le programme d'installation vous demande d'entrer un mot de passe administrateur. Dans ce cas, entrez le mot de passe de votre compte.**
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen2.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/miniconda_install_01.png)
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/screen4.png)
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/miniconda_install_02.png)
+
+![capture d'écran montrant le programme d'installation de miniconda](assets/img/session1/miniconda_install_03.png)
 
 Vous pouvez quitter le programme d'installation : Miniconda est maintenant installé sur l'ordinateur.
 
