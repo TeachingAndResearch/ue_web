@@ -114,65 +114,39 @@ Le projet d'exemple est hébergé sur Github, et une archive y est récupérable
 
 Nous vous demandons de:
 1. Télécharger l'archive ZIP via le lien précédent
-2. Extraire cette archive
-
+2. Extraire cette archive\
 ![extraction de l'archive zip](assets/img/session1/zip_project_00.png)
-
 3. Sur la page d'accueil PyCharm, cliquer sur **ouvrir**
-
 ![](assets/img/session1/zip_project_01.png)
-
 4. Sélectionner le dossier où vous avez extrait l'archive ZIP et cliquez sur OK
-
 ![](assets/img/session1/zip_project_02.png)
-
 5. Cliquez sur OK pour créer un nouvel environnement virtuel pour le projet.
-
 ![](assets/img/session1/zip_project_03.png)
-
 6. Attendre que PyCharm charge le projet. Cette opération peut prendre un certain temps, car les dépendances nécessaires doivent être installées à partir du réseau.
-
 7. Lancer le projet comme avant. **Si vous rencontrez une erreur, prévenez l'enseignant!**
 
 ## Configuration du projet avec le mode _Flask_ et le mode _deboggage_
 
 1. Cliquez à droite du nom du projet (la liste déroulante)
-
 ![](assets/img/session1/flask_debug_01.png)
-
 2. Cliquer sur **Edit Configurations ...**
-
 ![](assets/img/session1/flask_debug_02.png)
-
 3. Cliquer sur **Add New Configuration** (le icone **+**)
-
 ![](assets/img/session1/flask_debug_03.png)
-
 4. Sélectionner **Flask server**
-
 ![](assets/img/session1/flask_debug_04.png)
-
 5. Dans la page de configuration il faut faire les suivantes :
    - `1`. Sélectionner « Script path » 
    - `2`. Cliquer sur l'icone dossier et Sélectionner le fichier « `app.py` » dans le dossier du projet, puis cliquez OK.
    - `3`. Cocher « `FLASK_DEBUG` »
    - `4`. Vérifiez qu'un environment est sélectionné
    - `5`. Cliquez OK
-
 ![](assets/img/session1/flask_debug_10-numbered.png)
-
 6. Cliquez à droite du nom du projet (la liste déroulante)
-
 ![](assets/img/session1/flask_debug_11.png)
-
 7. Cliquez sur l'icône de l'insecte à droite du nom de la configuration d'exécution que vous venez de créer `Flask (app.py)`
-
 ![](assets/img/session1/flask_debug_12.png)
-
 8. Ceci exécutera le serveur en mode débogage, et une nouvelle console devrait s'ouvrir en bas. **Si une erreur apparait, contactez l'enseignant**
-
 ![](assets/img/session1/flask_debug_13.png)
-
 9. Cliquez ensuite sur l'URL dans la console. Un texte devrait apparaitre dans le navigateur.
-
 ![](assets/img/session1/flask_debug_14.png)
