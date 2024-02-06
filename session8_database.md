@@ -2,7 +2,7 @@
 title: Session 8 - Bases de données
 excerpt: ""
 nav_order: 8
-nav_exclude: true
+nav_exclude: false
 ---
 
 1. TOC
