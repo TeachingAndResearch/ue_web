@@ -21,10 +21,10 @@ nav_order: 11
 
 - <https://developer.mozilla.org/en-US/docs/Web> Des infos générales sur le web faites par Mozilla (les standards notamment)
 - <https://www.w3schools.com/tags/tag_font.asp> Plein d'infos w3schools pour le html/css/js/python
-- <https://flask.palletsprojects.com/en/1.1.x/> La doc de Flask
-- <https://jinja2docs.readthedocs.io/en/stable/index.html> Jinja2
-- <https://docs.sqlalchemy.org/en/13/orm/index.html> SQL alchemy
-- <https://flask-wtf.readthedocs.io/en/stable/form.html#module-flask_wtf.file> La doc pour les formulaires/téléversement de fichiers/tokens/Captcha utilisant flask-wtf
+- <https://flask.palletsprojects.com/en/2.3.x/> La doc de Flask
+- <https://jinja.palletsprojects.com/en/3.1.x/> Jinja2
+- <https://docs.sqlalchemy.org/en/20/orm/index.html> SQL alchemy
+- <https://flask-wtf.readthedocs.io/en/1.2.x/form/> La doc pour les formulaires/téléversement de fichiers/tokens/Captcha utilisant flask-wtf
 - <https://getbootstrap.com/docs/5.0/> Bootstrap
 
 ## Spécifiques
@@ -77,7 +77,6 @@ Puis, ajoutez `flask.` avant la fonction. Cela arrive avec les projets pré-gén
 
 - Si vous avez des problèmes d'affichage après changements (le changement n'a pas l'air d'apparaître sur la page) :
   - <https://www.howtogeek.com/672607/how-to-hard-refresh-your-web-browser-to-bypass-your-cache/>
-  - <https://www.minitool.com/news/clear-cache-for-one-site.htm>
   Vous pouvez aussi désactiver le cache quand les devtools sont utilisés :
   - <https://themightymo.com/how-to-disable-browser-cache-in-firefox-dev-tools/>
   - <https://stackoverflow.com/questions/46341392/chrome-devtools-disable-cache-what-does-it-actually-do-apart-from-nothing-fo>
