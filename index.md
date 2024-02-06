@@ -10,12 +10,13 @@ nav_order: 0
 
 ## Planning
 
-| Séance   | Contenu                |
-|----------|------------------------|
-| séance 1 | Sessions 1, 2, 3, 4    |
-| séance 2 | Sessions 4, 5, 6, 7, 8 |
-| séance 3 | projet                 |
-| séance 4 | projet                 |
+| Séance      | Contenu                | Dates                    |
+|-------------|------------------------|--------------------------|
+| séance 1    | Sessions 1, 2, 3, 4    | 2024-02-06               |
+| séance 2    | Sessions 4, 5, 6, 7, 8 | 2024-02-13               |
+| séance 3..8 | Projet                 | 2024-02-20 -- 2024-03-19 |
+| séance 9    | Examen                 | 2024-03-26               |
+
 
 ## Enseignant
 
