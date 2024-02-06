@@ -308,7 +308,7 @@ En visitant la page [http://127.0.0.1:5000/engineer/id/1](http://127.0.0.1:5000/
 # Exercice
 
 Pour la prochaine séance, nous vous demandons de codez une vue qui:
-- prendra en paramètre le nom d'un site (brest, nantes, ...)
+- prendra en paramètre le nom d'un site (newyork, earth, ...)
 - affichera les ingénieurs affiliés à ce site
 
 Pour cela vous pourrez:
