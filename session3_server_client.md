@@ -1,6 +1,5 @@
 ---
 title: Session 3 - Le modèle serveur-client par l'exemple
-excerpt: ""
 nav_order: 3
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Accueil
-excerpt: ""
 nav_order: 0
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Session 5 - Demander de l'information à l'utilisateur avec les formulaires
-excerpt: ""
 nav_order: 5
 nav_exclude: false
 ---

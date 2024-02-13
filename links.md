@@ -1,6 +1,5 @@
 ---
 title: Documents annexes
-excerpt: ""
 nav_order: 11
 ---
 

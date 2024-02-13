@@ -1,6 +1,5 @@
 ---
 title: Session 2 - Introduction à HTML, CSS et Javascript
-excerpt: ""
 nav_order: 2
 ---
 

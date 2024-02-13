@@ -1,6 +1,5 @@
 ---
 title: Session 4 - Développer une application Flask simple
-excerpt: ""
 nav_order: 4
 ---
 

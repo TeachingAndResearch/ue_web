@@ -1,6 +1,5 @@
 ---
 title: Session 1 - Démarrer avec Flask et Python
-excerpt: ""
 nav_order: 1
 ---
 
