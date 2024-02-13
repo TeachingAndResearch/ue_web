@@ -10,9 +10,9 @@ nav_order: 11
 - slides pre-bootstrap : [html-css](https://0xc0de.fr/courses/Domaine/2018/slides/html-css/)
 - slides javascript/ajax : [javascript](https://0xc0de.fr/courses/Domaine/2018/slides/js-ajax/)
 
-# Projet 2023-2024: TBD
+# Projet 2023-2024: « IMTrello » Application web pour le suivi de projets et de tâches
 
-- cahier des charges pour le projet : TBD<!--[UE-Web-CdC-2021.pdf](assets/pdf/UE-Web-CdC-2022.pdf)-->
+- cahier des charges pour le projet : [Projet 2023-2024 UW WEB.pdf](assets/pdf/Projet 2023-2024 UW WEB.pdf)
 
 
 # Liens utiles
