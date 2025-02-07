@@ -1,7 +1,7 @@
 ---
 title: Session 8 - Bases de données
 nav_order: 8
-nav_exclude: false
+nav_exclude: true
 ---
 
 1. TOC

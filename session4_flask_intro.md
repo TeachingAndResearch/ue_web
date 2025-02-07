@@ -12,26 +12,40 @@ environnement de développement Flask fonctionnel. Si ce n'est pas le
 cas, veuillez suivre les instructions de la [session 1](session1_install.html)
 avant de poursuivre avec les instructions ci-dessous.
 
+> **ATTENTION**: 
+**Chaque fois** que nous modifions le code dans un fichier python, nous devons arrêter le serveur et le redémarrer. Les modifications ne sont pas automatiquement prises en compte, c'est plutôt l'ancien code qui continue à fonctionner.
+
 
 # Une première application web simple, avec Flask
 
 Nous allons voir dans cette Section comment afficher un message dans le navigateur de l'utilisateur.
 
 Tout d'abord, créer un nouveau projet Flask qui aura
-pour nom "FlaskTP1" en suivant les instructions de la [session
-précédente](session1_install.html#v%C3%A9rification-de-linstallation).
+pour nom "FlaskTP1" en suivant les instructions de la [session 1](session1_install.html).
 
 Nous allons maintenant coder une vue qui affichera le texte
-"Helloworld". Pour cela, éditez le fichier `app.py` généré par PyCharm
-de manière à ce qu'il contienne le code suivant:
+"Helloworld". Pour cela, créez et éditez le fichier `app.py` de manière à ce qu'il contienne le code suivant:
+
 
 ```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+    
+    
 @app.route('/greetings')
 def some_function():
     return "Helloworld!"
+
+
+if __name__ == '__main__':
+    app.run()
 ```
 
-Lancer l'application Flask, et accéder à cette vue via l'URL [http://127.0.0.1:5000/greetings](http://127.0.0.1:5000/greetings):
+**Lancez l'application Flask**, et accédez à cette vue via l'URL [http://127.0.0.1:5000/greetings](http://127.0.0.1:5000/greetings):
 
 ![capture d'écran montrant le resultation d'un helloworld avec Flask](assets/img/session4/screen1.png)
 
@@ -64,7 +78,7 @@ résultat suivant:
 
 ![capture d'écran montrant le programme d'installation de miniconda](assets/img/session4/screen5.png)
 
-Les différents types acceptés nativement dans Flask sont trouvables [ici](https://exploreflask.com/en/latest/views.html#url-converters).
+Les différents types acceptés nativement dans Flask sont trouvables [ici](https://github.com/rpicard/explore-flask/blob/master/source/views.rst#url-converters).
 
 # Vers des vues structurées avec les templates
 
@@ -76,12 +90,32 @@ Python et transmis à Flask. Dans un second temps, nous verrons comment
 
 ## Une vue construite naïvement en Python
 
-Prenons l'exemple suivant:
+Prenons l'exemple suivant, où nous avons ajouté l'impotation du `Response` dans la première ligne pour être capable de specifier explicitement le type (textuel) de la reponse.
 
 ```python
-import flask # mettre cette ligne en debut de fichier (surtout si vous gardez le fichier généré par Pycharm)
+from flask import Flask, Response 
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+
+@app.route('/greetings')
+def some_function():
+    return "Helloworld!"
+
+
+@app.route("/sum/<lang>/<int:a>/<int:b>")
+def compute_sum(lang, a, b):
+    c = a + b
+    if lang == "fr":
+        return "La somme de %d et %d est %d" % (a, b, c)
+    else:
+        return "The sum of %d and %d is %d" % (a, b, c)
+
 
 @app.route("/complex_view")
 def complex_view():
@@ -105,8 +139,13 @@ def complex_view():
         result += msg_if_not_boolean_value
 
     # envoie de la reponse sous forme textuelle
-    return flask.Response(result,
+    return Response(result,
                           mimetype="text")
+
+
+if __name__ == '__main__':
+    app.run()
+                          
 ```
 
 En visitant l'URL
@@ -133,6 +172,11 @@ structure conditionnelle avec l'instruction `if/else`**
 
 Pour cela, nous allons:
 
+- 0) Ajouter l'importation de la fonction `render_template`
+```python
+from flask import Flask, Response, render_template
+```
+
 - 1) créer une nouvelle fonction `complex_view_template` qui contient le code suivant:
 
 ```python
@@ -144,7 +188,7 @@ def complex_view_template():
     msg_if_not_boolean_value = "[boolean_value is false]"
 
     # Bien penser a mettre 'import flask' en debut de fichier
-    return flask.Response(flask.render_template("complex_view.jinja2",
+    return Response(render_template("complex_view.jinja2",
                                  colors=colors,
                                  boolean_value=boolean_value,
                                  msg_if_boolean_value=msg_if_boolean_value,
@@ -188,7 +232,7 @@ génération de code HTML, il pourrait en être autrement lors de la
 génération d'une réponse qui serait sensible aux espaces. Dans un tel
 cas, il est possible d'avoir un plus grand contrôle sur la gestion des
 espaces (c.f. [ce
-lien](http://jinja.pocoo.org/docs/2.10/templates/#whitespace-control)).
+lien](https://jinja.palletsprojects.com/en/stable/templates/#whitespace-control)).
 
 Le code de template suivant permet d'avoir un résultat identique à
 celui de la fonction en python "pur":
@@ -208,6 +252,10 @@ celui de la fonction en python "pur":
 {% endraw %}
 
 ![capture d'écran montrant le resultat du premier programme utilisant les templates et gestion des espaces](assets/img/session4/complex_view_template_1.png)
+
+### Fermer le projet
+Fermez le serveur web et ensuite fermez le projet comme vous avez appris déjà.
+
 
 # Envoyer du HTML à l'utilisateur
 
@@ -257,8 +305,8 @@ __Nous allons maintenant coder une vue qui affichera la description d'un
 ingénieur en prenant en entrée son identifiant__. Pour cela, nous
 allons:
 
-* 1) créer un fichier `show_engineer.html.jinja2` dans le dossier templates
-   (en violet dans PyCharm)
+* 1) créer un fichier `show_engineer.html.jinja2` dans le dossier `templates` (c.-à-d. `templates/show_engineer.html.jinja2`) (il faut créer comme avant le dossier lui même aussi).
+
 * 2) y mettre le contenu suivant:
 
 {% raw %}
@@ -288,7 +336,7 @@ allons:
 ```
 {% endraw %}
 
-- 3) créer une nouvelle fonction python dans le fichier `app.py`, qui reprendrait le code suivant:
+- 3) remplacer la implementation de la fonction python dans le fichier `app.py`, qui reprendrait le code suivant:
 
 ```python
 @app.route('/engineer/id/<int:engineer_id>')

@@ -1,7 +1,7 @@
 ---
 title: Session 5 - Demander de l'information à l'utilisateur avec les formulaires
 nav_order: 5
-nav_exclude: false
+nav_exclude: true
 ---
 
 1. TOC
@@ -70,7 +70,7 @@ Ce projet une application Flask basique qu'il faudra compléter.
 ## Ajout du formulaire dans Flask
 
 Dans le fichier `app.py`, Une fonction
-`fonction_formulaire_addition` a été définie (l.28) : celle-ci est en charge de créer un formulaire et traiter les informations reçues depuis ce formulaire.
+`fonction_formulaire_addition` a été définie (ligne 28) : celle-ci est en charge de créer un formulaire et traiter les informations reçues depuis ce formulaire.
 Le code est le suivant:
 
 ```python

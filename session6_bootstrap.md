@@ -1,7 +1,7 @@
 ---
 title: Session 6 - Mise en forme avancée avec Bootstrap
 nav_order: 6
-nav_exclude: false
+nav_exclude: true
 ---
 
 
