@@ -18,7 +18,7 @@ environnement Python fonctionnel, vous pouvez sauter cette étape.
 
 ## Installation de Miniconda
 
-Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html) pour télécharger le programme d'installation qui correspond à votre configuration. Faites attention à choisir __Python 3.7 MINIMUM__. Normalement, la version actuelle est Python 3.11.
+Avec votre navigateur, visitez [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html) pour télécharger le programme d'installation qui correspond à votre configuration. Faites attention à choisir __Python 3.7 MINIMUM__. Normalement, la version actuelle est Python 3.12.
 
 Il faut exécuter le programme d'installation sur votre machine. Au cours de l'installation, utilisez les paramètres par défaut. **Il est possible que le programme d'installation vous demande d'entrer un mot de passe administrateur. Dans ce cas, entrez le mot de passe de votre compte.**
 
@@ -52,7 +52,7 @@ Pour vérifier que l'installation de "PyCharm" et "Miniconda" est fonctionnelle,
 
 ![](assets/img/session1/default_project_02.png)
 
-Un écran vous demandant des renseignements sur le projet apparaitra :
+Un écran **similaire à ça** vous demandant des renseignements sur le projet apparaitra :
 
 ![](assets/img/session1/default_project_03a-numbered.png)
 
@@ -71,6 +71,51 @@ PyCharm va configurer le nouveau projet et analyser votre installation de Python
 Finalement, une fenêtre affichant le code du projet exemple apparaitra :
 
 ![](assets/img/session1/default_project_04.png)
+
+
+Cliquez avec le bouton droit de la souris sur le nom du projet à gauche (__FlaskExample__) et, dans le menu qui s'affiche, sélectionnez __New__ puis __Python File__ , comme indiqué ci-dessous :
+
+![](assets/img/session1/default_project_04a.png)
+
+Dans la boîte de dialogue qui apparaît, écrivez le nom du fichier à créer : `app.py` et tapez sur Entrée pour le créer, comme indiqué ci-dessous :
+
+![](assets/img/session1/default_project_04b.png)
+
+Le fichier `app.py` que vous créez sera vide. Copiez-collez le programme suivant dans ce fichier, exactement comme il est montré ci-dessous :
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
+```
+
+
+![](assets/img/session1/default_project_04c.png)
+
+PyCharm signale un problème en soulignant en rouge le mot `flask` (attention, lettres minuscules). Passez avec le pointeur de la souris et maintenez-le brièvement sur la lettre soulignée :
+
+![](assets/img/session1/default_project_04d.png)
+
+Une fenêtre contextuelle devrait apparaître, offrant la possibilité de résoudre le problème en installant la dépendance nommée (`flask`) pour vous. Cliquez sur `Install package flask`:
+
+![](assets/img/session1/default_project_04e.png)
+
+PyCharm va commencer à installer `flask`, ce qui peut prendre un peu de temps, et pendant qu'il est en train de le faire, il affichera une barre de progression en bas :
+
+![](assets/img/session1/default_project_04f.png)
+
+Une fois l'installation terminée, une notification s'affiche en bas de l'écran pour indiquer que l'installation a réussi :
+
+![](assets/img/session1/default_project_04g.png)
+
+
+
 
 Nous allons lancer le projet afin de voir si **Python** et **Flask** sont bien installés. Pour cela, cliquez sur l'icône en forme d'insecte en haut à droite de la fenêtre PyCharm :
 
@@ -135,17 +180,27 @@ Nous vous demandons de:
 4. Sélectionner **Flask server**
 ![](assets/img/session1/flask_debug_04.png)
 5. Dans la page de configuration il faut faire les suivantes :
-   - `1`. Sélectionner « Script path » 
-   - `2`. Cliquer sur l'icone dossier et Sélectionner le fichier « `app.py` » dans le dossier du projet, puis cliquez OK.
-   - `3`. Cocher « `FLASK_DEBUG` »
-   - `4`. Vérifiez qu'un environment est sélectionné
-   - `5`. Cliquez OK
-![](assets/img/session1/flask_debug_10-numbered.png)
-6. Cliquez à droite du nom du projet (la liste déroulante)
+   - `1`. Vérifiez que le bon environment est sélectionné
+   - `2`. Sélectionner « Script » 
+   - `3`. Cliquer sur l'icone dossier et Sélectionner le fichier « `app.py` » dans le dossier du projet, puis cliquez OK.
+![](assets/img/session1/flask_debug_10a-numbered.png)
+
+6. Maintenant, cliquez sur `Modify options` en haut à droite et dans le menu qui s'ouvre cliquez sur `Flask debug` pour l'activer.
+![](assets/img/session1/flask_debug_10b-numbered.png)
+
+7. Vous remarquerez que `Flask debug` a été ajouté. 
+Cliquez sur **OK**, **PAS SUR Run**.
+![](assets/img/session1/flask_debug_10c-numbered.png)
+
+
+8. Cliquez à droite du nom du projet (la liste déroulante)
 ![](assets/img/session1/flask_debug_11.png)
-7. Cliquez sur l'icône de l'insecte à droite du nom de la configuration d'exécution que vous venez de créer `Flask (app.py)`
+9. Cliquez sur l'icône de l'insecte à droite du nom de la configuration d'exécution que vous venez de créer `Flask (app.py)`
 ![](assets/img/session1/flask_debug_12.png)
-8. Ceci exécutera le serveur en mode débogage, et une nouvelle console devrait s'ouvrir en bas. **Si une erreur apparait, contactez l'enseignant**
+10. Ceci exécutera le serveur en mode débogage, et une nouvelle console devrait s'ouvrir en bas. **Si une erreur apparait, contactez l'enseignant**
 ![](assets/img/session1/flask_debug_13.png)
-9. Cliquez ensuite sur l'URL dans la console. Un texte devrait apparaitre dans le navigateur.
+11. Cliquez ensuite sur l'URL dans la console. Un texte devrait apparaitre dans le navigateur.
 ![](assets/img/session1/flask_debug_14.png)
+
+### Fermer le projet
+Fermez le serveur web et ensuite fermez le projet comme vous avez appris à le faire pour le projet précédent `FlaskExample`.
