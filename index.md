@@ -11,10 +11,10 @@ nav_order: 0
 
 | Séance      | Contenu              | Dates                    |
 |-------------|----------------------|--------------------------|
-| séance 1    | Sessions 1, 2, 3, 4  | 2024-02-06               |
-| séance 2    | Sessions 5, 6, 7, 8  | 2024-02-13               |
-| séance 3..8 | Projet               | 2024-02-20 -- 2024-03-19 |
-| séance 9    | Examen               | 2024-03-26               |
+| séance 1    | Sessions 1, 2, 3, 4  | 2025-02-07               |
+| séance 2    | Sessions 5, 6, 7, 8  | 2025-02-14               |
+| séance 3..5 | Projet               | 2025-02-21 -- 2024-03-07 |
+| séance 6    | Examen               | 2025-03-28               |
 
 
 ## Enseignant
