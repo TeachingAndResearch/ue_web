@@ -74,7 +74,7 @@ Ce que nous venons de faire, c'est de faire prendre conscience à Flask
 que la base de données existe, et nous avons demandé à Flask
 d'initialiser la base de données quand l'application est démarrée.
 
-Si nous lancions Flask avec seulement ces lignes:
+Ne pas lancer Flask avec seulement ces lignes, car :
 - la base de données serait stockée à un endroit inconnu sur l'ordinateur
 - quelques messages d'avertissement apparaitraient dans la console
 
@@ -82,9 +82,17 @@ Pour résoudre ces deux points, ajouter les instructions suivantes dans
 le fichier `app.py`, juste après la définition de la variable `app`:
 
 ```python
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database/database.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///../database/database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 ```
+
+A ce stade, vous pouvez lancer `app.py`. Quand il s'exécutera, il créera un nouveau fichier de base de données nommé `database/database.db`, mais qui, à moins que vous n'ayez défini des classes de modèles, sera vide (c'est-à-dire qu'il ne contiendra aucune table).
+
+Pour voir ce fichier, faites un clic droit sur le nom du projet dans le panneau de gauche, et sélectionnez `Reload from disk`.
+
+Vous pouvez vérifier le contenu de `database/database.db` en ouvrant le fichier. 
+
+PyCharm vous proposera d'installer une extension qui vous permettra de visualiser les bases de données SQLite. Installez-la, et regardez le contenu de la base de données.
 
 # Définition de classes "Modèle"
 
@@ -311,4 +319,4 @@ one_tournament_2 = Tournament.query.filter(Tournament.date > now - datetime.time
 one_tournament_3 = Tournament.query.filter(Tournament.date > now).all()
 ```
 
-Enfin, il est possible de faire des requêtes plus complexes au moyen de la méthode `filter`. Cette [page](http://www.leeladharan.com/sqlalchemy-query-with-or-and-like-common-filters) donne un aperçu des possibilités offertes par la méthode `filter`, tandis que la [documentation SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/query.html) est plus complète.
+Enfin, il est possible de faire des requêtes plus complexes au moyen de la méthode `filter`. Cette [page](https://docs.sqlalchemy.org/en/13/orm/tutorial.html#common-filter-operators) donne un aperçu des possibilités offertes par la méthode `filter`, tandis que la [documentation SQLAlchemy](https://docs.sqlalchemy.org/en/13/orm/query.html) est plus complète.

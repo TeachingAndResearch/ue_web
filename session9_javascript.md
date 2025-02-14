@@ -126,4 +126,6 @@ Ici, nous allons apprendre à manipuler ces données pour les afficher dynamique
 
 Téléchargez le projet [td_ajax.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/td_ajax.zip) et ouvrez-le dans Pycharm.
 
-Attendez le reste des instructions :)
+Implémenter la récupération du contenu de `friends.json` du côté serveur en plusieurs étapes incrémentales. 
+
+**Suivez les instructions dans `static/js/interface.js`.**

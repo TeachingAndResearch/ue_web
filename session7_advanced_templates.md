@@ -1,7 +1,7 @@
 ---
 title: Session 7 - Templates avancées et ressources statiques
 nav_order: 7
-nav_exclude: true
+nav_exclude: false
 ---
 
 1. TOC
@@ -240,16 +240,26 @@ requêtes des utilisateurs.
 
 Avec Flask, il faut mettre les fichiers CSS et Javascript dans le
 dossier `static`.  Les fichiers présents dans le dossier `static` sont
-publics, et ont chacun une URL. Vous pouvez donc créer un nouveau projet Flask `tp_static`.
+publics, et ont chacun une URL. 
 
-Il est possible de récupérer l'URL d'un fichier statique avec la
-fonction `url_for` comme dans l'exemple suivant:
+## Créez un nouveau projet Flask `tp_static`.
+
+Créez une structure typique d'une application Flask (`import ...`, `app = ...`, `if __name__ == ...`).
+
+
+Il est possible de récupérer l'URL d'un fichier statique avec la fonction `url_for`. 
+Si vous voulez tester ceci *en dehors* du contexte d'une requête spécifique (c'est-à-dire en dehors d'une fonction de contrôleur ou d'une vue), vous avez besoin d'un contexte d'application, sinon cela ne fonctionnera pas. Procédez comme suit :
+
 ```python
 from flask import url_for # a mettre en debut de fichier
 
-fichier_css_url = url_for("static", filename="css/fichier.css")
-print(fichier_css_url)
+
+with app.test_request_context():
+    fichier_css_url = url_for("static", filename="css/style.css")
+    print(fichier_css_url)
 ```
+
+Si vous voulez tester ceci *à l'intérieur* du contexte d'une requête spécifique (c'est-à-dire à l'intérieur d'une fonction du contrôleur ou d'une vue), vous pouvez directement appeler `url_for()`, sans avoir besoin d'un contexte d'application explicite, puisqu'il est présent et récupéré à partir de la requête en cours.
 
 ## Sous dossiers de ressources
 
@@ -321,7 +331,7 @@ En effet, nous l'avons fait apparaitre en modifiant le
 Web avec Javascript. Nous verrons dans une session future comment
 faire des modifications avancées avec Javascript.
 
-À noter également que si vous accédez aux outils de développeurs (dev tools) comme indiqué dans le [troubleshooting de la page annexes](https://marie-donnie.github.io/ue_web/links.html#troubleshooting), vous pouvez néanmoins bien voir la modification effectuée sur la page par Javascript.
+À noter également que si vous accédez aux outils de développeurs (dev tools) comme indiqué dans le [troubleshooting de la page annexes](./links.html#troubleshooting), vous pouvez néanmoins bien voir la modification effectuée sur la page par Javascript.
 
 # Correction
 

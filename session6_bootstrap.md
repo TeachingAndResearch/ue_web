@@ -1,7 +1,7 @@
 ---
 title: Session 6 - Mise en forme avancée avec Bootstrap
 nav_order: 6
-nav_exclude: true
+nav_exclude: false
 ---
 
 
@@ -146,7 +146,7 @@ pixels de large, deux colonnes de 600 à 1200 pixels, et
 quatre colonnes au-delà de 1200 pixels :
 [http://tiny.cc/SARfbr](http://tiny.cc/SARfbr)
 
-Note : Vous pouvez afficher dans votre navigateur à quoi ressemblera la page selon plusieurs tailles d'écran prédéfinies (selon les modèles d'appareils) dans les outils de développeurs (dev tools), comme indiqué dans le [troubleshooting de la page annexes](https://marie-donnie.github.io/ue_web/links.html#troubleshooting) (`F12`), puis en cliquant sur
+Note : Vous pouvez afficher dans votre navigateur à quoi ressemblera la page selon plusieurs tailles d'écran prédéfinies (selon les modèles d'appareils) dans les outils de développeurs (dev tools), comme indiqué dans le [troubleshooting de la page annexes](./links.html#troubleshooting) (`F12`), puis en cliquant sur
 ![le bouton de responsive design](assets/img/session6/responsive_button.png).
 
 
