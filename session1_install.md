@@ -1,6 +1,7 @@
 ---
 title: Session 1 - Démarrer avec Flask et Python
 nav_order: 1
+nav_exclude: true
 ---
 
 1. TOC

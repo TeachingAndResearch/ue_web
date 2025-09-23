@@ -9,7 +9,7 @@ nav_order: 4
 
 Avant de démarrer cette session, assurez-vous de bien avoir un
 environnement de développement Flask fonctionnel. Si ce n'est pas le
-cas, veuillez suivre les instructions de la [session 1](session1_install.html)
+cas, veuillez suivre les instructions de la [session 1](session1_vsinstall.html)
 avant de poursuivre avec les instructions ci-dessous.
 
 > **ATTENTION**: 
@@ -21,7 +21,7 @@ avant de poursuivre avec les instructions ci-dessous.
 Nous allons voir dans cette Section comment afficher un message dans le navigateur de l'utilisateur.
 
 Tout d'abord, créer un nouveau projet Flask qui aura
-pour nom "FlaskTP1" en suivant les instructions de la [session 1](session1_install.html).
+pour nom "FlaskTP1" en suivant les instructions de la [session 1](session1_vsinstall.html).
 
 Nous allons maintenant coder une vue qui affichera le texte
 "Helloworld". Pour cela, créez et éditez le fichier `app.py` de manière à ce qu'il contienne le code suivant:
@@ -76,7 +76,7 @@ def compute_sum(lang, a, b):
 Quand on accède à l'URL [http://127.0.0.1:5000/sum/en/3/5](http://127.0.0.1:5000/sum/en/3/5), on obtient le
 résultat suivant:
 
-![capture d'écran montrant le programme d'installation de miniconda](assets/img/session4/screen5.png)
+![capture d'écran](assets/img/session4/screen5.png)
 
 Les différents types acceptés nativement dans Flask sont trouvables [ici](https://github.com/rpicard/explore-flask/blob/master/source/views.rst#url-converters).
 
@@ -263,8 +263,10 @@ Dans cette section nous allons voir comment renvoyer une réponse HTML
 à l'utilisateur en utilisant les templates Jinja.
 
 
-Tout d'abord, récupérer une archive de code
-[session_4_engineer_view.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/session_4_engineer_view.zip)
+Tout d'abord, cloner le repertoire git 
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session4-engineer-view.git
+```
 contenant un projet qui servira de base pour cet exercice.
 
 Ce TP contient une base de données pour stocker les données. Entre
