@@ -263,7 +263,7 @@ Dans cette section nous allons voir comment renvoyer une réponse HTML
 à l'utilisateur en utilisant les templates Jinja.
 
 
-Tout d'abord, cloner le repertoire git 
+Tout d'abord, clonez le repertoire git 
 ```text
 https://github.com/TeachingAndResearch/ue_web_example_session4-engineer-view.git
 ```
