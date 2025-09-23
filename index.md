@@ -3,7 +3,7 @@ title: Accueil
 nav_order: 0
 ---
 
-# Programmation d'une application web avec Flask
+# Ingénierie des applications Web
 
 <!-- **Soutenances en B218 !** -->
 
