@@ -62,8 +62,12 @@ de son évaluation sera affiché comme suit:
 ## Récupération du projet à compléter
 
 
+Tout d'abord, clonez le repertoire git 
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session5-formulaires.git
+```
+contenant un projet qui servira de base pour cet exercice.
 
-Avec votre navigateur, cliquez sur ce [lien vers formulaires.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/formulaires.zip) permettant de démarrer cet exercice.
 
 Ce projet une application Flask basique qu'il faudra compléter.
 

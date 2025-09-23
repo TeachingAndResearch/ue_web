@@ -7,8 +7,14 @@ nav_exclude: true
 1. TOC
 {:toc}
 
-Pour cette session nous utiliserons un projet déjà existant. Veuillez
-récupérer ZIP l'archive accessible à l'URL suivante [tp_templates_start.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/tp_templates_start.zip).
+Pour cette session nous utiliserons un projet déjà existant. 
+
+Clonez le repertoire git 
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session7-templates-start.git
+```
+contenant un projet qui servira de base pour cet exercice.
+
 
 Ce projet contient 3 vues:
 - view_a
@@ -335,4 +341,9 @@ faire des modifications avancées avec Javascript.
 
 # Correction
 
-Vous pouvez récupérer une archive ZIP [tp_templates_correction.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/tp_templates_correction.zip) contenant la correction de cette séance.
+Vous pouvez cloner le repertoire git 
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session7-templates-correction.git
+```
+
+contenant la correction de cette séance.
