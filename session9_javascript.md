@@ -1,7 +1,7 @@
 ---
 title: Session 9 - Javascript, Ajax et JQuery
 nav_order: 10
-nav_exclude: false
+nav_exclude: true
 ---
 
 <style>

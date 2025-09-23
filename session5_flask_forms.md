@@ -1,7 +1,7 @@
 ---
 title: Session 5 - Demander de l'information à l'utilisateur avec les formulaires
 nav_order: 5
-nav_exclude: false
+nav_exclude: true
 ---
 
 1. TOC
