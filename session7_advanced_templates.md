@@ -1,7 +1,7 @@
 ---
 title: Session 7 - Templates avancées et ressources statiques
 nav_order: 7
-nav_exclude: true
+nav_exclude: false
 ---
 
 1. TOC
