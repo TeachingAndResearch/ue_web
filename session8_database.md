@@ -89,11 +89,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 A ce stade, vous pouvez lancer `app.py`. Quand il s'exécutera, il créera un nouveau fichier de base de données nommé `database/database.db`, mais qui, à moins que vous n'ayez défini des classes de modèles, sera vide (c'est-à-dire qu'il ne contiendra aucune table).
 
-Pour voir ce fichier, faites un clic droit sur le nom du projet dans le panneau de gauche, et sélectionnez `Reload from disk`.
-
-Vous pouvez vérifier le contenu de `database/database.db` en ouvrant le fichier. 
-
-VS code normalement vous proposera d'installer une extension qui vous permettra de visualiser les bases de données SQLite. Installez-la, et regardez le contenu de la base de données.
 
 # Définition de classes "Modèle"
 
@@ -168,6 +163,15 @@ et la fonction `session.delete` permet de supprimer un objet de la base de donn�
 db.session.delete(existing_task)
 db.session.commit() # Sauvegarde les informations dans la base de donnees
 ```
+
+Après l'ajout de données et un `commit()` vous pouvez regarder les contenus du fichier  `database/database.db`.
+Pour voir ce fichier, faites un clic droit sur le nom du projet dans le panneau de gauche, et sélectionnez `Reload from disk`.
+
+Vous pouvez vérifier le contenu de `database/database.db` en ouvrant le fichier. 
+
+VS code normalement vous proposera d'installer une extension qui vous permettra de visualiser les bases de données SQLite. Installez-la, et regardez le contenu de la base de données.
+
+
 
 # Sélectionner et filtrer des données
 
