@@ -20,13 +20,14 @@ les données de la base de données) en utilisant des fonctions python
 qui s'occupaient d'interroger la base de données.
 
 Pour bien illustrer ces étapes, nous démarrerons cette session à
-partir d'une archive ZIP
-[tp_bdd_tasks_start.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/tp_bdd_tasks_start.zip)
+partir du repertoire git : 
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session8-bdd-tasks-start.git
+```
 contenant un projet minimal, sans base de données. Dans les sections
 suivantes, nous ajouterons progressivement le support des bases de
 données. Enfin, nous ferons un exercice qui se basera sur le
-code écrit pendant la session. Il sera aussi possible de démarrer
-d'une archive ZIP. La correction se trouve en fin de ce document.
+code écrit pendant la session. La correction se trouve en fin de ce document.
 
 # Mise en place d'une connexion avec une base de données
 
@@ -35,7 +36,7 @@ Tout d'abord, ajouter cette ligne (si elle n'est pas déjà présente) dans le f
 flask-sqlalchemy
 ```
 
-Cela indique à votre environnement de développement (PyCharm dans
+Cela indique à votre environnement de développement (VS code dans
 notre cas) qu'il faut que la bibliothèque `flask-sqlalchemy` doit être
 disponible dans notre application Flask.
 
@@ -92,7 +93,7 @@ Pour voir ce fichier, faites un clic droit sur le nom du projet dans le panneau 
 
 Vous pouvez vérifier le contenu de `database/database.db` en ouvrant le fichier. 
 
-PyCharm vous proposera d'installer une extension qui vous permettra de visualiser les bases de données SQLite. Installez-la, et regardez le contenu de la base de données.
+VS code normalement vous proposera d'installer une extension qui vous permettra de visualiser les bases de données SQLite. Installez-la, et regardez le contenu de la base de données.
 
 # Définition de classes "Modèle"
 
@@ -211,7 +212,10 @@ Nous avons donc deux relations:
 - une relation OneToMany entre sport et équipe.
 - une relation ManyToMany entre joueurs et équipes.
 
-Vous pouvez récupérer une archive de code [tp_relations_flask.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/tp_relations_flask.zip),
+Vous pouvez récupérer le repertoire git:
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session8-relations-flask.git
+```
 qui contient le code correspondant à cet exemple.
 
 Dans le fichier `database.py` le modèle est défini de la manière suivante:
@@ -282,7 +286,10 @@ db.session.commit()
 sports = Sport.query.all()
 ```
 
-A parti de l'exemple récupéré avec l'archive [tp_relations_flask.zip](https://github.com/TeachingAndResearch/ue_web_example/archive/tp_relations_flask.zip)
+A partir de l'exemple récupéré du repositoire git:
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session8-relations-flask.git
+```
 en allant sur l'URL [http://localhost:5000/test](http://localhost:5000/test), vous devriez avoir le résultat suivant:
 ![assets/img/session8/sport.png](assets/img/session8/sport.png)
 
