@@ -195,7 +195,7 @@ python app.py
 ```
 https://github.com/TeachingAndResearch/ue_web_example_session1-git.git
 ```
-3. Le dépôt contiendra un fichier `.devcontainer/devcontainer.json`, alors VS Code utilisera cette configuration automatiquement\*\*.\*\*
+3. Le dépôt contiendra un fichier `.devcontainer/devcontainer.json`, alors VS Code utilisera cette configuration **automatiquement**.
 4. VS Code va **créer un volume Docker**, **cloner le dépôt à l’intérieur du conteneur** et **ouvrir l’espace de travail** directement **dans** le conteneur. Aucune installation de Git n’est nécessaire sur Windows/macOS.
 
 **Notes de compatibilité**
