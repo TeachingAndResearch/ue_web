@@ -212,8 +212,7 @@ et passer via le dev containers sur exécution en dev container.
 
 Ce repository contient un la service implémenté dans le TP (le service `Movie` qui nous intéresse ici). Chaque répertoire de service contient les données `json` qui lui sont associées ainsi que la spécification `OpenAPI`.
 
-Le repository, comme indiqué dans le guide d'installation, contient également un fichier `requirements.txt` racine utile pour installer les dépendances nécessaires (à savoir ici les bibliothèques `Flask` et `requests`). Il contient enfin les fichiers nécessaires à la construction de l'environnement Docker, à savoir un fichier `docker-compose.yaml` et dans chaque répertoire un fichier `requirements.txt` et un `Dockerfile`.
-
+Le repository, comme indiqué dans le guide d'installation, contient également un fichier `requirements.txt` racine utile pour installer les dépendances nécessaires (à savoir ici la bibliothèque `Flask`). 
 
 ## Les bases de notre service Movie
 
@@ -239,7 +238,6 @@ Créons un point d'entrée retournant le fichier JSON entièrement. Pour cela, n
 
 ```python
 from flask import Flask, jsonify, make_response
-import json
 
 
 @app.route("/json", methods=['GET'])
@@ -339,7 +337,6 @@ Pour faire une requête et tester ce point d'entrée il faut donc passer un para
 Cela est facile à faire avec `Insomnia`.
 
 
-
 ## Points d'entrée pour modifier, ajouter et supprimer des données
 
 ### POST ajouter un nouveau film
@@ -361,6 +358,7 @@ Voici le code pour l’endpoint d’ajout :
 
 ```python
 from flask import request
+import json 
 
 @app.route("/movies/<movieid>", methods=['POST'])
 def add_movie(movieid):
@@ -422,7 +420,6 @@ def del_movie(movieid):
     res = make_response(jsonify({"error":"movie ID not found"}), 404)
     return res
 ```
-
 ---
 
 Avec ce tutoriel, vous avez désormais une base solide pour comprendre les principes d’une API REST, son architecture, ainsi que son implémentation simple via Flask. N’hésitez pas à tester chaque point d’entrée avec les différentes méthodes HTTP pour bien comprendre leur rôle et leur usage dans une API RESTful.
