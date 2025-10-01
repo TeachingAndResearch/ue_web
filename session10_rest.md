@@ -202,13 +202,15 @@ Pour un retour aux sources, voir la thèse de Roy Fielding :
 
 ## Objectif
 
-Nous allons ici implémenter un micro-service `Movie` avec `Flask`.
+Nous allons ici implémenter une service `Movie` avec `Flask`.
 
-IMPORTANT : Merci de vous référer à la page sur la préparation et les installations nécessaires à cette UE avant de continuer.
+Clonez le repository `git` suivant : 
+```text
+https://github.com/TeachingAndResearch/ue_web_example_session10-rest.git
+```
+et passer via le dev containers sur exécution en dev container.
 
-Téléchargez le contenu du repository `git` suivant : https://github.com/IMTA-FIL/UE-AD-A1-REST
-
-Le contenu de ce repository sera votre espace de travail pour ce tutoriel et votre TP sur REST. Il contient un répertoire par service à implémenter dans le TP, dont un répertoire pour le service `Movie` qui nous intéresse ici. Chaque répertoire de service contient les données `json` qui lui sont associées ainsi que la spécification `OpenAPI`.
+Ce repository contient un la service implémenté dans le TP (le service `Movie` qui nous intéresse ici). Chaque répertoire de service contient les données `json` qui lui sont associées ainsi que la spécification `OpenAPI`.
 
 Le repository, comme indiqué dans le guide d'installation, contient également un fichier `requirements.txt` racine utile pour installer les dépendances nécessaires (à savoir ici les bibliothèques `Flask` et `requests`). Il contient enfin les fichiers nécessaires à la construction de l'environnement Docker, à savoir un fichier `docker-compose.yaml` et dans chaque répertoire un fichier `requirements.txt` et un `Dockerfile`.
 
@@ -217,79 +219,15 @@ Le repository, comme indiqué dans le guide d'installation, contient également 
 
 ### Création et lecture des données JSON
 
-Le code ci-dessous permet la lecture du fichier JSON `databases/movies.json`. L'objet `movies` récupéré est obtenu en lisant la clé `"movies"` et est donc une liste (`list`).
+Le code ci-dessous permet la lecture du fichier JSON `databases/movies.json`. L'objet `movies` récupéré est obtenu en tant que liste (`list`).
 
 ```python
-from flask import Flask
 import json
 
 with open('{}/databases/movies.json'.format("."), "r") as jsf:
-   movies = json.load(jsf)["movies"]
+    movies = json.load(jsf)
+    print(movies)
 ```
-
-### Création d'un point d'entrée
-
-Nous allons créer un point d'entrée pour notre service. Ce point d'entrée se situe à la racine `/`, reçoit des requêtes HTTP de type `GET` et construit une réponse (au moyen de la méthode `make_response`) contenant une balise HTML.
-
-```python
-from flask import Flask, make_response
-import json
-
-app = Flask(__name__)
-
-PORT = 3200
-HOST = '0.0.0.0'
-
-with open('{}/databases/movies.json'.format("."), "r") as jsf:
-   movies = json.load(jsf)["movies"]
-
-@app.route('/', methods=['GET'])
-def index():
-    return make_response("<h1 style='color:blue'>Welcome to the Movie service!</h1>", 200)
-
-if __name__ == "__main__":
-    app.run(host=HOST, port=PORT)
-```
-
-Exécutez ce code (placez-vous dans le répertoire `movie`) avec au choix `python movie.py` (attention de bien utiliser `python3` si vous avez plusieurs versions) ou `pymon movie.py` (pour éviter de devoir arrêter et relancer le service à chaque modification). Accédez à la page indiquée dans la sortie de l'exécution sur votre navigateur (`http://127.0.0.1:3200`).
-
-
-### Utilisation des templates dans Flask
-
-Dans Flask, il est possible d'utiliser des [templates Jinja](https://flask.palletsprojects.com/en/2.0.x/tutorial/templates/).
-
-L'idée de base est de créer un répertoire `templates` dans lequel seront placés des fichiers template. Ici nous allons créer un fichier `templates/index.html` avec ce contenu :
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Flask tutorial</title>
-    </head>
-    <body>
-        <h1>{% raw %}{{ body_text }}{% endraw %}</h1>
-    </body>
-</html>
-```
-
-Toute partie de texte présente entre `{% raw %}{{ }}{% endraw %}` est une expression qui sera remplacée dans le document final. Notez qu'il existe aussi la balise `{% raw %}{% %}{% endraw %}` qui permet d'ajouter des conditions et des boucles au template.
-
-Créons donc un nouveau point d'entrée pour exploiter ce template en appelant la fonction `render_template`.
-
-```python
-from flask import Flask, render_template, make_response
-import json
-
-...
-
-@app.route("/template", methods=['GET'])
-def template():
-    return make_response(render_template('index.html', body_text='This is my HTML template for Movie service'), 200)
-```
-
-Sauvegardez et (optionnellement si vous n'utilisez pas `pymon`) relancez le service. Accédez à la page `URL/template` dans votre navigateur pour observer le résultat.
-
 
 ## Points d'entrée pour obtenir des données
 
@@ -300,16 +238,47 @@ Testez le résultat à chaque étape !
 Créons un point d'entrée retournant le fichier JSON entièrement. Pour cela, nous utilisons la méthode `jsonify` qui permet de créer une réponse HTTP à partir d'un format JSON ([voir la documentation Flask `jsonify`](https://tedboy.github.io/flask/generated/flask.jsonify.html)).
 
 ```python
-from flask import Flask, render_template, jsonify, make_response
+from flask import Flask, jsonify, make_response
 import json
 
-...
 
 @app.route("/json", methods=['GET'])
 def get_json():
     res = make_response(jsonify(movies), 200)
     return res
 ```
+
+
+### Utilisation d’outils de test : Postman ou équivalent
+
+Il est temps de tester votre service avec [Postman](https://www.postman.com/) ou un équivalent comme [Apidog](https://apidog.com) ou [Insomnia REST](https://insomnia.rest/).
+
+Ces outils permettent de créer des collections de requêtes pour tester facilement les API REST (mais aussi les API GraphQL ou gRPC). Ils proposent aussi des fonctionnalités de documentation ou d’automatisation.
+
+Pour faire une requête POST ou PUT avec un corps JSON, sélectionnez bien le type `raw` puis `JSON` dans l’onglet `Body` de votre requête.
+
+![Insomnia : Création d'une nouvelle requete](assets/img/session10/insomnia_01_new_request.png)
+![Insomnia : Remplissage du URL et lancement](assets/img/session10/insomnia_02_fill_url.png)
+![Insomnia : Visualisation du resultat](assets/img/session10/insomnia_03_result.png)
+
+### Postman ou équivalent
+
+Il est temps de tester votre service avec https://www.postman.com/[Postman] ou un équivalent comme (ou votre solution préférée)
+
+- https://apidog.com/[Apidog]
+- https://insomnia.rest/[Insomnia REST]
+
+Pour Insomnia, ce n'est pas nécessaire de créer un compte. Sur la page de demarrage de l'application il faut juste choisir:
+```text
+Or, start right away with limited capabilities
+Use local Scratch Pad
+```
+
+Vous pouvez dans ce type d'outils créer des collections de requêtes pour tester vos API REST (mais aussi on le verra les API GraphQL et gRPC). Vous pouvez aussi créer des documentations par exemple et d'autres fonctionnalités.
+
+Installez l'un de ces outils et créez une requête pour tester le point d'entrée précédent. Sauvegardez là pour pouvoir facilement la réutiliser.
+
+
 
 ### GET information d'un film à partir de son ID
 
@@ -322,21 +291,11 @@ def get_movie_byid(movieid):
         if str(movie["id"]) == str(movieid):
             res = make_response(jsonify(movie), 200)
             return res
-    return make_response(jsonify({"error":"Movie ID not found"}), 400)
+    return make_response(jsonify({"error":"Movie ID not found"}), 404)
 ```
 
 Vous voyez ici que l'ID est indiqué dans l'adresse directement. C'est la méthode la plus classique en REST pour passer des paramètres. On peut complexifier l'adresse comme on le souhaite, par exemple avec plusieurs paramètres `/entry_point/<val1>/<val2>/<val3>`.
 
-### Postman ou équivalent
-
-Il est temps de tester votre service avec https://www.postman.com/[Postman] ou un équivalent comme (ou votre solution préférée)
-
-- https://apidog.com/[Apidog]
-- https://insomnia.rest/[Insomnia REST]
-
-Vous pouvez dans ce type d'outils créer des collections de requêtes pour tester vos API REST (mais aussi on le verra les API GraphQL et gRPC). Vous pouvez aussi créer des documentations par exemple et d'autres fonctionnalités.
-
-Installez l'un de ces outils et créez une requête pour tester le point d'entrée précédent. Sauvegardez là pour pouvoir facilement la réutiliser.
 
 ### GET information à partir du titre avec un argument dans la requête
 
@@ -359,7 +318,7 @@ def get_movie_bytitle():
                 break
 
     if not result:
-        res = make_response(jsonify({"error":"movie title not found"}), 400)
+        res = make_response(jsonify({"error":"movie title not found"}), 404)
     else:
         res = make_response(jsonify(result), 200)
     return res
@@ -370,16 +329,8 @@ Ici, le titre ne fait plus partie de l'URL mais est donné comme argument de la 
 C'est une autre façon de procéder qui utilise plus les mécanismes HTTP mais moins la logique REST.
 
 Pour faire une requête et tester ce point d'entrée il faut donc passer un paramètre. 
-Cela est facile à faire avec `Postman` (ou ses équivalents)
+Cela est facile à faire avec `Insomnia`.
 
-
-### Utilisation d’outils de test : Postman ou équivalent
-
-Il est temps de tester votre service avec [Postman](https://www.postman.com/) ou un équivalent comme [Apidog](https://apidog.com) ou [Insomnia REST](https://insomnia.rest/).
-
-Ces outils permettent de créer des collections de requêtes pour tester facilement les API REST (mais aussi les API GraphQL ou gRPC). Ils proposent aussi des fonctionnalités de documentation ou d’automatisation.
-
-Pour faire une requête POST ou PUT avec un corps JSON, sélectionnez bien le type `raw` puis `JSON` dans l’onglet `Body` de votre requête.
 
 
 ## Points d'entrée pour modifier, ajouter et supprimer des données
@@ -395,7 +346,7 @@ Un film aura par exemple la structure suivante :
   "title": "Test",
   "rating": 1.2,
   "director": "Someone",
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxy"
 }
 ```
 
@@ -404,7 +355,7 @@ Voici le code pour l’endpoint d’ajout :
 ```python
 from flask import request
 
-@app.route("/addmovie/<movieid>", methods=['POST'])
+@app.route("/movies/<movieid>", methods=['POST'])
 def add_movie(movieid):
     req = request.get_json()
 
@@ -425,7 +376,7 @@ def write_movies(movies):
 
 **Note importante** : pour écrire correctement le JSON, on remet la clé `"movies"` selon la structure initiale du fichier.
 
-Pour tester une requête POST avec un body JSON, vous ne pouvez plus utiliser un simple navigateur. Utilisez impérativement un outil comme Postman et assurez-vous que la requête est bien configurée.
+Pour tester une requête POST avec un body JSON, vous ne pouvez plus utiliser un simple navigateur. Utilisez impérativement un outil comme `Insomnia` et assurez-vous que la requête est bien configurée.
 
 
 ### PUT modifier la note d'un film
