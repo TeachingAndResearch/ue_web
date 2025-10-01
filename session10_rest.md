@@ -249,35 +249,42 @@ def get_json():
 ```
 
 
-### Utilisation d’outils de test : Postman ou équivalent
+### Tester votre service avec Insomnia
 
-Il est temps de tester votre service avec [Postman](https://www.postman.com/) ou un équivalent comme [Apidog](https://apidog.com) ou [Insomnia REST](https://insomnia.rest/).
+Pour ce TP, nous allons utiliser Insomnia, un client HTTP simple et efficace pour tester des API REST. Il permet de créer, organiser et rejouer facilement des requêtes. Dans cette section, vous enverrez une requête GET simple (sans paramètres). Les requêtes avec un corps JSON (POST/PUT) viendront plus tard.
 
-Ces outils permettent de créer des collections de requêtes pour tester facilement les API REST (mais aussi les API GraphQL ou gRPC). Ils proposent aussi des fonctionnalités de documentation ou d’automatisation.
-
-Pour faire une requête POST ou PUT avec un corps JSON, sélectionnez bien le type `raw` puis `JSON` dans l’onglet `Body` de votre requête.
-
-![Insomnia : Création d'une nouvelle requete](assets/img/session10/insomnia_01_new_request.png)
-![Insomnia : Remplissage du URL et lancement](assets/img/session10/insomnia_02_fill_url.png)
-![Insomnia : Visualisation du resultat](assets/img/session10/insomnia_03_result.png)
-
-### Postman ou équivalent
-
-Il est temps de tester votre service avec https://www.postman.com/[Postman] ou un équivalent comme (ou votre solution préférée)
-
-- https://apidog.com/[Apidog]
-- https://insomnia.rest/[Insomnia REST]
-
-Pour Insomnia, ce n'est pas nécessaire de créer un compte. Sur la page de demarrage de l'application il faut juste choisir:
+#### Installation et démarrage sans compte
+- Téléchargez Insomnia : https://insomnia.rest/
+- Au premier lancement, ne créez pas de compte. Sur l’écran d’accueil, choisissez :
 ```text
 Or, start right away with limited capabilities
 Use local Scratch Pad
 ```
+Vous travaillerez ainsi en mode local, ce qui est suffisant pour le TP.
 
-Vous pouvez dans ce type d'outils créer des collections de requêtes pour tester vos API REST (mais aussi on le verra les API GraphQL et gRPC). Vous pouvez aussi créer des documentations par exemple et d'autres fonctionnalités.
+#### Envoyer une requête GET simple
+1) Créez une nouvelle requête.
+![Insomnia : création d’une nouvelle requête](assets/img/session10/insomnia_01_new_request.png)
 
-Installez l'un de ces outils et créez une requête pour tester le point d'entrée précédent. Sauvegardez là pour pouvoir facilement la réutiliser.
+2) Choisissez la méthode GET.
 
+3) Renseignez l’URL du point d’entrée à tester (celui que vous avez développé juste avant), par exemple:
+- http://localhost:5000/ … (adaptez le port et le chemin à votre service)
+
+![Insomnia : saisie de l’URL et envoi](assets/img/session10/insomnia_02_fill_url.png)
+
+4) Cliquez sur Send.
+
+5) Vérifiez la réponse dans l’onglet Response (statut HTTP, en-têtes, corps de réponse).
+![Insomnia : visualisation du résultat](assets/img/session10/insomnia_03_result.png)
+
+6) Sauvegardez la requête pour pouvoir la rejouer facilement plus tard et commencez à organiser vos requêtes (par exemple par fonctionnalité) dans Insomnia.
+
+#### Pour plus tard : requêtes avec corps JSON (POST/PUT)
+Quand vous passerez aux opérations nécessitant un corps de requête (POST/PUT) :
+- Ouvrez l’onglet Body.
+- Sélectionnez le type JSON.
+- Saisissez le contenu JSON de votre requête, puis envoyez-la.
 
 
 ### GET information d'un film à partir de son ID
