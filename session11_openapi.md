@@ -299,3 +299,356 @@ Ici, la différence principale est que le paramètre `title` est situé dans la 
 ---
 
 Ainsi, nous avons vu comment décrire et documenter une API REST complète en utilisant le standard OpenAPI. Ce format facilite la maintenance, la compréhension et l’automatisation autour de votre API. N’hésitez pas à expérimenter avec des éditeurs OpenAPI dans votre IDE pour visualiser directement la documentation générée à partir du YAML.
+
+---
+
+## Pour aller plus loin
+
+Nous allons proposer 3 opérations supplémentaires à implémenter. Collez/mergez le fragment YAML ci-dessous dans votre spec OpenAPI existante (dans les sections paths et components), puis implémentez et testez chaque endpoint via Insomnia en suivant précisément les descriptions.
+
+```yaml
+# Fragment OpenAPI à ajouter à votre spec existante.
+# Ajoutez/mergez les nœuds "paths" et "components" ci-dessous.
+
+paths:
+  /movies/{movieid}:
+    patch:
+      tags:
+        - admins
+      summary: Mise à jour partielle (PATCH) d’un film
+      operationId: patch_movie
+      description: |-
+        Objectif: permettre une mise à jour partielle d’un film existant.
+        Règles à respecter:
+        - Champs modifiables: title, rating, director. Le champ id est immuable et ne doit pas être présent dans le payload.
+        - Valider les types/contraintes (rating entier borné 0..10, strings non vides).
+        - Ignorer les champs absents; ne pas écraser avec null; payload vide => 400.
+        Conseils de test simple:
+        1) GET /movies/{movieid} pour récupérer le courant.
+        2) PATCH avec un payload partiel: vous devez recevoir 200.
+      parameters:
+        - name: movieid
+          in: path
+          required: true
+          description: Identifiant unique du film (UUID).
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoviePatch'
+            examples:
+              changeTitle:
+                summary: Changer uniquement le titre
+                value:
+                  title: "The Martian (Extended Cut)"
+              changeRating:
+                summary: Mettre à jour la note
+                value:
+                  rating: 8
+      responses:
+        '200':
+          description: Film mis à jour. Renvoyer la ressource complète et l’ETag mis à jour.
+          headers:
+            ETag:
+              description: Nouvel ETag de la ressource après mise à jour.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieItem'
+        '400':
+          description: Payload invalide (aucun champ, types incorrects, champs non autorisés).
+        '404':
+          description: Film introuvable pour l’id fourni.
+        '415':
+          description: Content-Type non supporté (attendu application/json).
+
+  /movies/bulk:
+    post:
+      tags:
+        - admins
+      summary: Création en lot (bulk) de films
+      operationId: bulk_create_movies
+      description: |-
+        Objectif: créer plusieurs films en une seule requête.
+        Règles:
+        - Body = tableau d’objets "NewMovieItem". Le champ id est optionnel; s’il est absent, le serveur génère un id.
+        - Détection de conflit: id déjà existant = rejection de tout l'ensemble des ajouts.
+        Conseils de test:
+        - Envoyer 2-3 films dont un volontairement en conflit.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateRequest'
+            example:
+              - title: "The Martian"
+                rating: 7
+                director: "Ridley Scott"
+              - id: "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+                title: "Sherlock Holmes"
+                rating: 8
+                director: "Guy Ritchie"
+      responses:
+        '201':
+          description: Tous les films ont été créés.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkResult'
+              example:
+                summary:
+                  processed: 2
+                  created: 2
+                  conflicts: 0
+                  invalid: 0
+                results:
+                  - index: 0
+                    status: created
+                    movie:
+                      id: "e1f7b6a1-0e8b-4a7d-9d6d-1a2b3c4d5e6f"
+                      title: "The Martian"
+                      rating: 7
+                      director: "Ridley Scott"
+                  - index: 1
+                    status: created
+                    movie:
+                      id: "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+                      title: "Sherlock Holmes"
+                      rating: 8
+                      director: "Guy Ritchie"
+        '409':
+          description: Conflit (aucun film créé).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkError'
+              example:
+                error: "conflict"
+                details:
+                  message: "Doublon détecté sur 1 élément; opération annulée."
+                  conflictingIds:
+                    - "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+        '400':
+          description: Payload invalide (non tableau, champs requis manquants, types invalides).
+        '415':
+          description: Content-Type non supporté (attendu application/json).
+
+  /movies/search:
+    get:
+      tags:
+        - developers
+      summary: Recherche multi-critères avec pagination et tri
+      operationId: search_movies
+      description: |-
+        Objectif: filtrer et trier les films existants.
+        - Filtres disponibles (tous facultatifs): titleContains, director, minRating, maxRating.
+        - Contrainte: si minRating ou maxRating est fourni, ils doivent être des entiers 0..10 et minRating ≤ maxRating.
+        - Tri: sortBy ∈ {title, rating, director, id}, sortOrder ∈ {asc, desc}.
+        - Retourner 200 avec une liste possiblement vide.
+        Conseils de test:
+        - Chercher par titre partiel, combiner avec min/max rating, puis tester le tri.
+      parameters:
+        - in: query
+          name: titleContains
+          description: Sous-chaîne recherchée dans le titre (recherche insensible à la casse recommandée).
+          required: false
+          schema:
+            type: string
+            minLength: 1
+        - in: query
+          name: director
+          description: Filtrer sur le nom exact du réalisateur.
+          required: false
+          schema:
+            type: string
+            minLength: 1
+        - in: query
+          name: minRating
+          description: Note minimale (entier 0..10)
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 10
+        - in: query
+          name: maxRating
+          description: Note maximale (entier 0..10).
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 10
+        - in: query
+          name: sortBy
+          description: Champ de tri.
+          required: false
+          schema:
+            type: string
+            enum: [title, rating, director, id]
+            default: title
+        - in: query
+          name: sortOrder
+          description: Ordre de tri.
+          required: false
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: asc
+      responses:
+        '200':
+          description: Résultats de recherche.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+              example:
+                items:
+                  - id: "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+                    title: "Sherlock Holmes"
+                    rating: 8
+                    director: "Guy Ritchie"
+        '400':
+          description: Paramètres invalides (ex. minRating > maxRating, valeurs hors bornes).
+        '415':
+          description: Format non supporté.
+
+components:
+  schemas:
+    MoviePatch:
+      type: object
+      description: |-
+        Payload partiel autorisé pour PATCH.
+        - N’envoyez que les champs à modifier.
+        - Les champs absents ne sont pas modifiés.
+        - Le champ "id" n’est pas autorisé.
+      additionalProperties: false
+      properties:
+        title:
+          type: string
+          minLength: 1
+          example: "The Martian (Extended Cut)"
+        rating:
+          type: integer
+          minimum: 0
+          maximum: 10
+          example: 8
+        director:
+          type: string
+          minLength: 1
+          example: "Ridley Scott"
+      minProperties: 1
+
+    NewMovieItem:
+      type: object
+      description: Données nécessaires à la création d’un film.
+      required:
+        - title
+        - rating
+        - director
+      properties:
+        id:
+          type: string
+          description: Optionnel. Si absent, le serveur génère un ID.
+          example: "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+        title:
+          type: string
+          example: "The Martian"
+        rating:
+          type: integer
+          minimum: 0
+          maximum: 10
+          example: 7
+        director:
+          type: string
+          example: "Ridley Scott"
+
+    BulkCreateRequest:
+      type: array
+      description: Tableau d’objets à créer.
+      minItems: 1
+      items:
+        $ref: '#/components/schemas/NewMovieItem'
+
+    BulkItemResult:
+      type: object
+      description: Résultat unitaire d’un item de la requête bulk.
+      properties:
+        index:
+          type: integer
+          description: Index de l’élément dans le tableau d’entrée.
+          example: 1
+        status:
+          type: string
+          description: Statut pour cet item.
+          enum: [created, exists, conflict, invalid, error]
+          example: created
+        id:
+          type: string
+          description: Identifiant du film si disponible.
+          example: "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+        message:
+          type: string
+          description: Détail en cas d’échec.
+          example: "ID déjà utilisé"
+        movie:
+          $ref: '#/components/schemas/MovieItem'
+
+    BulkResult:
+      type: object
+      description: Résumé et détails d’une création en lot.
+      required:
+        - summary
+        - results
+      properties:
+        summary:
+          type: object
+          properties:
+            processed:
+              type: integer
+              example: 2
+            created:
+              type: integer
+              example: 1
+            conflicts:
+              type: integer
+              example: 1
+            invalid:
+              type: integer
+              example: 0
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkItemResult'
+
+    BulkError:
+      type: object
+      description: Erreur globale pour une opération bulk atomique échouée.
+      properties:
+        error:
+          type: string
+          example: "conflict"
+        details:
+          type: object
+          additionalProperties: true
+          example:
+            message: "Doublon détecté"
+            conflictingIds:
+              - "39ab85e5-5e8e-4dc5-afea-65dc368bd7ab"
+
+    SearchResults:
+      type: object
+      description: Résultats paginés pour la recherche.
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieItem'
+```
