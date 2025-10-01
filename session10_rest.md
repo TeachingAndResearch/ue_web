@@ -252,7 +252,7 @@ def get_json():
 Pour ce TP, nous allons utiliser Insomnia, un client HTTP simple et efficace pour tester des API REST. Il permet de créer, organiser et rejouer facilement des requêtes. Dans cette section, vous enverrez une requête GET simple (sans paramètres). Les requêtes avec un corps JSON (POST/PUT) viendront plus tard.
 
 #### Installation et démarrage sans compte
-- Téléchargez Insomnia : https://insomnia.rest/
+- Téléchargez Insomnia : [https://insomnia.rest/](https://insomnia.rest/)
 - Au premier lancement, ne créez pas de compte. Sur l’écran d’accueil, choisissez :
 ```text
 Or, start right away with limited capabilities
